@@ -1,0 +1,7 @@
+*omakescenario
+textoff
+bg "extra-omake2.jpg",10
+lsp 110,":s/17,17,0;#FFFFFF#17E0F0「変わらない想い」　著者：若本強",40,115
+lsp 111,":s/17,17,0;#FFFFFF#17E0F0「雨上がりの会食」　著者：Tonks ",120,210
+lsp 112,":s/17,17,0;#FFFFFF#17E0F0「Ｂｏｎ☆Ｃｏｕｒａｇｅ」　著者：酔狂会館",200,300
+lsp 113,":s/18,18,2;#FFFFFF#17E0F0【`Back`】",273,431

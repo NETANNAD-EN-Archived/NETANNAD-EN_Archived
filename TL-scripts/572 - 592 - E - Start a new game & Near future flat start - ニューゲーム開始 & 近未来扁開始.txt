@@ -1,0 +1,46 @@
+;------------------ニューゲーム開始---------------------
+*newstart
+locate 0,0
+csp -1
+bg #000000,10
+mov $1,"岡崎";デフォルトの名字
+mov $2,"朋也";デフォルトの名前
+現在の名前は岡崎朋也です。変更しますか？
+br
+select "はい",*change,"いいえ",*kinmirai
+*change
+inputstr $1,"主人公の名字を入力して下さい。（全角４文字まで）",16,1
+inputstr $2,"主人公の名前を入力して下さい。（全角４文字まで）",16,1
+
+主人公の名前は$1$2でよろしいですか？
+br
+select "はい",*kinmirai,"いいえ",*newstart
+
+;--------------------近未来扁開始----------------------------
+*kinmirai
+stop 
+EN
+
+;------------------Start a new game---------------------
+*newstart
+locate 0,0
+csp -1
+bg #000000,10
+mov $1,"Okazaki";default surname
+mov $2,"Tomoya";default name
+His current name is Tomoya Okazaki. Change?
+br
+select "yes",change,"no",kinmirai
+change
+inputstr $1,"Please enter the last name of the main character. (Up to 4 double-byte characters)",16,1
+inputstr $2,"Please enter the main character's first name. (Up to 4 double-byte characters)",16,1
+
+
+`Is the hero's name $1$2 correct?
+br
+select "Yes",kinmirai,"No",*newstart
+
+
+;-------------------- near future flat start --------------------------
+*kinmirai
+stop`

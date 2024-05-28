@@ -1,0 +1,113 @@
+;--------------------------------------------------------
+;------------------オプション設定画面--------------------
+;---------------------------------------------------------
+
+*option
+csp -1;全てのスプライト消去
+bg "option.jpg",10
+
+*optionloop
+
+
+
+;自動クリック関連
+;-----------------------------------------
+
+
+lsp 10,":s/17,17,0;#FFFFFF#17E0F0１秒",70,100
+lsp 11,":s/17,17,0;#FFFFFF#17E0F0２秒",120,100
+lsp 12,":s/17,17,0;#FFFFFF#17E0F0３秒",170,100
+lsp 13,":s/17,17,0;#FFFFFF#17E0F0４秒",220,100
+lsp 14,":s/17,17,0;#FFFFFF#17E0F0５秒",270,100
+
+if %auto_speed=1000 lsp 10,":s/17,17,0;#FF0000１秒",70,100
+if %auto_speed=2000 lsp 11,":s/17,17,0;#FF0000２秒",120,100
+if %auto_speed=3000 lsp 12,":s/17,17,0;#FF0000３秒",170,100
+if %auto_speed=4000 lsp 13,":s/17,17,0;#FF0000４秒",220,100
+if %auto_speed=5000 lsp 14,":s/17,17,0;#FF0000５秒",270,100
+
+automode_time %auto_speed
+;-----------------------------------------
+
+
+
+;テキストウィンドウの濃度関連
+;-----------------------------------------
+
+lsp 15,":s/17,17,0;#FFFFFF#17E0F0普通",78,240
+lsp 16,":s/17,17,0;#FFFFFF#17E0F0薄い",78,260
+lsp 17,":s/17,17,0;#FFFFFF#17E0F0濃い",78,280
+
+if %w_noudo=0 lsp 15,":s/17,17,0;#FF0000普通",78,240:setwindow 30,16,26,14,22,22,0,8,20,1,1,#848484,0,0,639,479;普通
+if %w_noudo=1 lsp 16,":s/17,17,0;#FF0000薄い",78,260:setwindow 30,16,26,14,22,22,0,8,20,1,1,#DCDCDC,0,0,639,479;薄い
+if %w_noudo=2 lsp 17,":s/17,17,0;#FF0000濃い",78,280:setwindow 30,16,26,14,22,22,0,8,20,1,1,#525852,0,0,639,479;濃い
+
+
+;エフェクト毎のウィンドウ消去設定関連
+;-----------------------------------------
+
+lsp 18,":s/17,17,0;#FFFFFF#17E0F0テキストウィンドウを毎回消さない",78,360
+lsp 19,":s/17,17,0;#FFFFFF#17E0F0テキストウィンドウを毎回消す",78,380
+
+if %etx=0 lsp 18,":s/17,17,0;#FF0000テキストウィンドウを毎回消さない",78,360
+if %etx=1 lsp 19,":s/17,17,0;#FF0000テキストウィンドウを毎回消す",78,380
+
+;「戻る」ボタンの設定関連
+lsp 20,":s/18,18,2;#FFFFFF#17E0F0【戻る】",273,431
+
+;オプションメニューを描画
+print 1
+
+
+;ここからボタン処理
+;---------------------------------------------
+
+;一気にボタン化
+for %cnt=10 to 20
+  spbtn %cnt,%cnt
+next
+
+;ボタン判定処理
+btnwait %0
+
+if %0=0 goto *optionloop
+if %0=-1 movemousecursor 315,437:goto *optionloop
+if %0=10 wave "wave\oncursor.wav":mov %auto_speed,1000:goto *optionloop
+if %0=11 wave "wave\oncursor.wav":mov %auto_speed,2000:goto *optionloop
+if %0=12 wave "wave\oncursor.wav":mov %auto_speed,3000:goto *optionloop
+if %0=13 wave "wave\oncursor.wav":mov %auto_speed,4000:goto *optionloop
+if %0=14 wave "wave\oncursor.wav":mov %auto_speed,5000:goto *optionloop
+
+if %0=15 wave "wave\oncursor.wav":mov %w_noudo,0:goto *optionloop
+if %0=16 wave "wave\oncursor.wav":mov %w_noudo,1:goto *optionloop
+if %0=17 wave "wave\oncursor.wav":mov %w_noudo,2:goto *optionloop
+
+if %0=18 wave "wave\oncursor.wav":mov %etx,0:goto *optionloop
+if %0=19 wave "wave\oncursor.wav":mov %etx,1:goto *optionloop
+if %0=20 wave "wave\push.wav":csp -1:goto *loop
+
+
+
+;--------------------↓ウィンドウ濃度変更サブルーチン↓----
+*changenoudo
+if %w_noudo=0 setwindow 30,16,26,14,22,22,0,8,20,1,1,#848484,0,0,639,479;普通
+if %w_noudo=1 setwindow 30,16,26,14,22,22,0,8,20,1,1,#DCDCDC,0,0,639,479;薄い
+if %w_noudo=2 setwindow 30,16,26,14,22,22,0,8,20,1,1,#525852,0,0,639,479;濃い
+return
+;--------------------------↑ここまで↑-------------------
+
+
+
+;--------------------↓オートスピード変更サブルーチン（ロード用）↓----
+*autospeedchange
+automode_time %auto_speed
+return
+;--------------------------↑ここまで↑---------------------------------
+
+
+
+;--------------------↓erasetxtwindow変更サブルーチン（ロード用）↓----
+*erasetxtchange
+erasetextwindow %etx
+return
+;--------------------------↑ここまで↑---------------------------------
