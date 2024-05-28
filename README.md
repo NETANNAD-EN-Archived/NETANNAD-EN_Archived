@@ -33,9 +33,13 @@ This project's goal is to patch the game and translate the 10 000 lines of games
 
 This section is updated to reflect contributors
 
+## JP
 - [Tonks - Original Author - Sub scripter](misskey.io/@tonks_smr)
 - [Denden - Main Scripter](https://x.com/densuke_x)
 - The rest of the people involved with the orignial NETANNAD
+
+## EN
+- [Allu "Allunatik" - Script - Project manager - Graphical work](https://x.com/Allunatikk)
 - [Duralumin - Translation](misskey.io/@tonks_smr)
 - [ShNova - Translation](https://x.com/ShigetoKoko)
 - [Engine work - Playmer - ONScripter-Fork](https://github.com/playmer/ONScripter-EN-Official)
