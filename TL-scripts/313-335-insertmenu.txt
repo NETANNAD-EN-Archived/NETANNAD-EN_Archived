@@ -1,0 +1,23 @@
+insertmenu "Exit",END
+insertmenu "Version Information",VERSION
+insertmenu "Volume",DWAVEVOLUME
+insertmenu "Skip to Choice",SKIP
+insertmenu "Auto mode",AUTO
+insertmenu "Settings",SUB
+insertmenu "Sound effects",SUB,1
+insertmenu "On",WAVEON,2
+insertmenu "Off",WAVEOFF,2
+insertmenu "Click settings",SUB,1
+insertmenu "Per line",CLICKDEF,2
+insertmenu "Per page",CLICKPAGE,2
+insertmenu "Font",FONT,1
+insertmenu "Text speed",SUB,1
+insertmenu "Slow",TEXTSLOW,2
+insertmenu "Default",TEXTMIDDLE,2
+insertmenu "Fast",TEXTFAST,2
+insertmenu "Skip settings",sub,1
+insertmenu "Skip all messages",kidokuoff,2
+insertmenu "Skip read text",kidokuon,2
+insertmenu "Screen settings",SUB,1
+insertmenu "Fullscreen",FULL,2
+insertmenu "Windowed",WINDOW,2

@@ -1,0 +1,20 @@
+;------------------New Game---------------------
+*newstart
+locate 0,0
+csp -1
+bg #000000,10
+mov $1,"Okazaki";Default Last Name
+mov $2,"Tomoya";Default First Name
+`Your current name is Okazaki Tomoya. Use this name?
+br
+select `No`,*change,`Yes`,*kinmirai
+*change
+inputstr $1,`Enter your last name. (Up to 4 full-width characters)`,16,1
+inputstr $2,`Enter your first name. (Up to 4 full-width characters)`,16,1
+br
+
+`Your name will be $1 $2. Use this name?
+br
+select `Yes`,*kinmirai,`No`,*newstart
+
+;--------------------In the near future----------------------------

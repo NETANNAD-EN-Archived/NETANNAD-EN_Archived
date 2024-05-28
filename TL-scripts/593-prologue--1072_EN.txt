@@ -1,0 +1,545 @@
+;--------------------Prologue--------------------------
+bg "bg\tenjou.jpg",19
+!sd
+;select "Continue",*next,"Barracks, Day 3",*bara3,"Ziggurat",*jiggrat,"Ziggurat, Day 4",*tabidachi,"Water Tower",*kyusui,"Tokyo",*tokyo,"Sumeru, Day 2",*insmail2,"Tokyo, Day 2",*tokyo2nd,"Tokyo, Day 5",*tokyo5
+
+*next
+`  The first thing I saw when opened my eyes was a reddish-brown-stained ceiling.@
+`  The ceiling was made up of thin metallic slats, most of them uneven and oddly fitted.@ The haphazard construction was clear to see in the light from the windows.@ Rust clung to the metal, lending the entire ceiling a reddish discoloration.@
+`  I drew a long breath through my nose, hoping to chase the sleep from my head.@
+`  The scent of machine oil hung thick in the air.@
+`  But amongst the reek of gears and oil, there was a faint, cloying sweetness to the air I didn't recognize...@
+delay 500
+`  "Well, look who's up."\
+
+`  I sprang up, the voice startling me to my senses.@
+bg balack_1,0
+`  I could feel my heart suddenly pounding in my chest.@
+`  But once I saw who had spoken, I started to catch my breath.@
+ld c,yosino1,6
+`  I knew him...@ It was that electrician guy. I'm pretty sure his name was...@
+bgm "bgm/43.mid"
+`  "Yoshino Yusuke?"@
+ld c,yosino3,10
+`  "Did you just say my full name? That's a weird thing to do.@ And shouldn't there be something else on your mind, first?"@
+`  He feigned an exasperated smirk as he spoke.\
+
+`  "I... Yeah, you're right...@ Where am I? How did I get here?@ And... what are you doing here?"@
+
+ld c,yosino7,10
+`  "Tsk, tsk, tsk, tsk."@
+`  He clucked his tongue softly at me.@
+
+`  "No, no. We'll get to that.@ But I don't want to have to keep going over it, so I'll explain once they're awake."@
+`  "They? Who-"\
+
+cl c,6
+`  That was when I noticed a soft sensation at the fingertips of my right hand.@
+`  My eyes searched out the sensation, and what I saw made me yank my hand away.@ 
+`  I had been touching a girl's thigh, who was resting on her side on some sort of mattress laid on the concrete floor.@
+`  I recognized her from school... It was Tomoyo Sakagami, a second-year.@
+`  And next to her was Kotomi Ichinose, a girl from my class, snoring away in exemplary fashion.\
+
+`  "What's going on? Why are they...?"@
+ld c,yosino2,6
+`  "Like I said, we'll get to that in a minute."@
+`  "But first, I'm still waiting to hear you say you-know-what.@ You know, the first thing that ought to come to mind?"@
+`  "Er... Like what?"@
+`  "Well, let's examine the situation.@ I rescued you three, you know? Saved your lives."@
+`  "Uh... okay?"@
+`  "And what should you say to someone who saves your life, hmm, $1?"@
+`  "Oh... Thanks."@
+ld c,yosino9,10
+`  An extremely satisfied-looking smile sprang to Yoshino's face.\
+
+`  "Oh, you're awake."@
+cl c,10
+ld l,yosino1,10
+`  The door opened with a squeal of grating metal, letting in the outside sunlight... And a young girl.@
+ld r,fuko1,6
+`  The glare from the light obscured her face, but judging by the voice, it was another girl from my school... Fuko Ibuki, a first year.\
+
+`  "Fuko? You're here too?@ I feel like I'm going crazy..."@
+ld r,fuko2,10
+`  "Huh? Onii-chan, you didn't tell him?"@
+`  "...Onii-chan?"
+
+`  What was that supposed to mean? As I recalled, Fuko was Ms. Kouko's sister, so if Yoshino was her her Onii-san, that would mean...@
+`  My head started spinning, until Fuko began flapping her hands in denial, as if trying to sweep away my deepening confusion.@
+ld r,fuko4,10
+`  "O-oh! No, not like that! we're not actually related or anything!"\
+
+ld l,yosino11,10
+`  "It's just a nickname. You know, as in 'the nice Onii-san from the electric company.'@ I don't mind if you call me that, too, if you want."@
+
+`  Yoshino interjected with a casual tone.@
+`  Fuko began as if she had something to add, but stopped herself. Watching her, Yoshino gave a short, soft snort of amusement.@
+`  It almost seemed like they had some sort of inside joke.@ In that sense, they were certainly acting like siblings.@
+`  What was happening? Was this some kind of bizarre dream? How did I even get here...?\
+
+`  "...Listen, I know I just woke up, but I'm feeling really overwhelmed, here.@ I'm going to get them up, so can you please just tell us what's going on?"@
+ld r,fuko3,10
+`  "They won't wake up until it's time."@
+`  Fuko met my eyes calmly as she spoke.@
+`  With a short sigh, Yoshino chimed in.@
+ld l,yosino2,10
+`  "Even if they'd be better off asleep."@
+
+`  If that was supposed to be helpful, it wasn't.@
+cl a,10
+`  But then, as if on cue, the two girls began to stir.\
+
+ld r,kotomi1,6
+ld l,tomoyo1,6
+`  Kotomi was the first to come around, slowly picking herself up and tugging her school uniform straight.@ Tomoyo, on the other hand, threw off her blanket and sprang up off the mattress.@
+ld r,kotomi5,10
+`  Her sudden vigor seemed to startle Kotomi, who stiffened slightly.@
+ld l,tomoyo3,10
+`  "Wha... Where am I?"@
+`  Tomoyo stood straight as she looked around, confused.@
+`  Meanwhile, Kotomi remained silent, momentarily frozen.@
+`  I had a pretty good idea of what they were going through, since I had woken up completely lost myself just a few moments earlier.@
+cl a,6
+`  "Oh, good, it looks like everyone's awake."\
+
+bg balack_2,6
+ld l,kouko1,6
+`  I recognized Ms. Kouko's voice, cutting through the tension in the room.@
+`  She was hefting what looked like a grey sack of some kind as she came inside.@
+`  "Oh, $1 and Kotomi, so you're here, now, too.@ I'm afraid I don't recognize her, though... is she a friend of yours?"@
+`  Her calming voice seemed to relax everyone present.@ Tomoyo dropped her arms, lowering her guard, and Kotomi gave a small sigh as she caught her breath.\
+
+ld r,tomoyo8,6
+`  "Oh, um. Hello. My name's Tomoyo Sakagami."@
+`  "Well, nice to meet you, Tomoyo. I'm Kouko Ibuki, I used to be $1 and Kotomi's art teacher."
+
+`  Ms. Kouko dropped the grey sack on the table, pulled out a chair, and nodded for us to sit down.@
+`  The table and chairs looked warped and weatherbeaten, as if they had been left outside for a long time.@
+`  I noticed Yoshino and Fuko had already joined her at the table.@
+cl a,6
+`  When the rest of us had taken our seats, Yoshino began speaking, his tone delicate.\
+stop
+
+ld c,yosino2,6
+`  "Okay. Now, this is going to be a lot to take in, but first, where would you prefer we start?"@
+`  "Start?"@
+
+`  Yoshino marked my interjection by clearing his throat before continuing.@
+
+`  "Do you want the full story, with all the gory details?@ Or would you rather cut to the chase?@
+`  Admittedly, things aren't great, so if you ask me, I'd take the backstory first, and work up to it.@ But, if you're in a hurry..."\
+
+`  "Would you just tell us what the hell is going on, already?!"@
+
+`  Unable to take it any longer, I jumped out of my chair and shouted.@ The air grew heavy with an awkward silence.@
+`  But Ms. Kouko, unfazed, shot me a cool glance.@
+`  Feeling abashed at my outburst, I dropped back down in my seat.@
+cl c,6
+ld c,kotomi4,6
+`  "...I agree. I want to know what we're doing here."@
+`  Softly, Kotomi murmured her assent.@ Yoshino turned towards Tomoyo, who silently nodded in agreement.@
+cl c,6
+ld c,yosino6,6
+`  "Alrighty, then.@ The untoward truth of our present circumstance it is."@
+
+`  Yoshino looked disappointed, but he obliged and gave us the short version.@
+bgm "bgm/15.mid"
+ld c,yosino2,10
+`  "This isn't the world you know. We're 250 years in the future."\
+
+cl a,10
+`  If Yoshino could be believed, the year was 2265.@
+`  And the place, Chukyo — the center of what used to be Nagoya.@
+`  We were dumbstruck. Taking advantage, Yoshino braved on, filling in the details.@
+`  He told us everything that had happened...@ How our world — the old world — became the one we awoke to.\
+
+`  　At the end of the 21st century, a time of peace led by the United States' global influence, Japan relocated its capital from Tokyo to Nagoya.@
+`  Ms. Kouko added that the time we came from was just as that shift was beginning.@
+`  Tokyo had grown stagnant economically, so Japan's industries shifted their focus to Nagoya, as a convenient transportation hub with ample land for development.@
+`  The newly christened capital of Chukyo grew in leaps and bounds,@ and the many industrial advances that resulted lifted Japan to once again reign ascendant as the leading global economic superpower.@
+`  ...But then came the turbulent events of the 22nd century.\
+
+
+`  It all began when the fossil fuels ran dry.@
+`  For over a hundred years, the world order searched, fumbling, for an energy source to replace oil.@ Neither natural gas nor nuclear power proved enough to bridge the gap.@
+`  "No way nuclear could catch up at that point.@ Gotta build the plants first, and that just means more petroleum up front," added Yoshino.@
+`  Inexorably, the shortages led us to a third world war.@
+`  The world's faith in the leadership of the United States vanished swiftly as it began to move in aggression.@ To protect their privileged way of life, the land of excess provoked multiple conflicts that would grow to embroil the globe.\
+
+`  The land of freedom itself stood against the entire free world.@
+`  Though they claimed many early victories, even the invincible might of the world's greatest military, quagmired on multiple fronts, was eventually exhausted.@
+`  All that the world-engrossing conflict had truly accomplished was draining the final reserves of precious fuel.@
+`  With the engines of war paralyzed, the era of modern warfare ground to a halt.@
+`  Confronted with the national nightmare of a new global Vietnam, America leapt to the option of absolute last resort.@ The big, red button.@
+`  The bombs dropped again.@ And then again.@ And again.\
+
+`  But of course, the United States was no longer alone in their mastery of the atom...@
+`  And so, one by one, day to day, the great cities of the world turned to ash.@ Too quickly for cooler heads to prevail, the greater half of the world was reduced to charnel fields.@
+`  And when the ash had settled, the survivors set about warring amonst themselves.@ The conflicts only came to end once the world's natural resources were all but exhausted.@
+`And thus, in an age of devastation, did we ring in the 23rd century.\
+
+cl a,10
+bg "bg/ac2000japan.jpg",10
+`  As for how Japan fared...@
+`  Despite America's repeated demands, it struck a neutral stance, deploying its armed forces only in self-defence.@
+`  Of course, we were far from unscathed, with both Chukyo and Tokyo mostly reduced to ruins.@ However, the country that suffered the first atom bomb was at least spared a repeat performance of that disaster.@
+`  Every other country simply found they had more deserving targets.@
+`  However, with the end of oil, Japan had lost its economic initiative.@
+`  "More accurately, none of our industries could sustain themselves any longer," clarified Ms. Kouko.\
+
+`  At the dawn of the century, though civil conflicts still smouldered, wars between national powers had settled.@
+`  Humanity had fallen into a deep despondency.@
+`  The cause of our new malaise was not a hundred years of war, but witnessing the regression of our once-advanced culture.@
+` "Put it another way," interjected Yoshino,@ "no one wanted to go back to steam engines."@
+`  But 50 years on, humanity was still searching for a new energy source.\
+
+bg balack_2,10
+ld c,yosino2,6
+`  And now, as unbelievable as it was...@
+`  Here we were, apparently. Chukyo, in the year 2265 A.D.\
+
+`  "So let me get this straight, we were, somehow, what..."@
+ld c,yosino3,10
+`  "Zapped to the future? Bingo. And we didn't even need a DeLorean."@
+
+`  Yoshino leaned back, folding his hands behind his head, and yawned deeply.\
+
+cl a,10
+`  By now, it was dark outside.@
+ld r,fuko1,6
+`  Dinner was resting on the table - Fuko had prepared it for us as Yoshino and Ms. Kouko were talking.@
+ld r,fuko5,10
+`  She had made a meat and vegetable soup, something like a minestrone.@ It was pretty good, but when I mentioned that, Fuko just blushed and looked down.\
+
+ld r,fuko1,10
+ld l,kouko1,6
+`  "It's been at least two years for us, now."@
+`  Ms. Kouko elaborated, tearing off a piece of bread.@
+`  "But... I remember talking to you just yesterday."@
+ld l,kouko11,10
+`  She smiled faintly, looking slightly distant, before she replied.\
+
+`  "That's right... I remember it, too.@ It's likely a time-lag effect. It's strange, I know... But so is time travel.@ It's not surprising that we'd experience side effects."@
+`  "I understand if you're confused. Reconciling your memory with the present can be... challenging.@ We've managed to come to grips with it, but it takes time... we know."@
+ld r,fuko1,10
+`  She glanced in Fuko's direction.@
+ld r,fuko3,10
+`  Fuko returned her look with a nod, signaling that she was all right.@
+`  Come to think of it, Fuko struck me as different than I remembered.@ She looked a little more mature, both in her appearance and her mannerisms.\
+
+`  "Since we woke up, we've been living here with Onii...@ I mean, with Yoshino."@
+`  "Everything's so different, now... it's been hard.@ If it was just me and Kouko, I don't know what we would've done."@
+cl a,6
+ld c,yosino2,6
+`  "Nah, you'd've done just fine.@ If anything, I'd say I'm the one who owes you."@
+`  Yoshino spoke frankly to her, before turning back to us.@
+`  "Anyway... Any questions? Now's the time."\
+
+`  "I want to know more about Japan... This Japan."@
+`  Kotomi had been quiet until now, but she spoke quickly as she interjected.@
+`  "Sure, lay it on me."@
+`  "Do we still make... well, anything?"@
+ld c,yosino3,10
+`  Well, that was unexpected.@
+`  I'd assumed Kotomi would have other, more pressing matters on her mind...@
+ld c,yosino7,10
+`  But Yoshino took the question in stride with a welcoming grin.\
+
+`  "Oh, sure. Mostly precision parts."@
+`  "The war didn't do us any favors, but up until then we made some real breakthroughs in manufacturing."@
+`  "We can still manage electricity now, so we can do some small-scale stuff, even without oil."@
+`  "I can give you the full rundown later, but that's what I do for work these days.@ Funny, here we are, and I'm still the good ol' 'Onii-chan from the electrical company.'@ Ain't that right?"\
+
+`  Yoshino turned a smug expression on Fuko as he spoke, looking pleased with himself.@
+`  Maybe he was just proud of putting food on the table for the three of them?@
+`  However, Ms. Kouko was looking down at the table with a sorrowful stare.@
+
+`  "Then... What about the arts?"
+ld c,yosino3,10
+`  "...Arts?"\
+
+`  As Kotomi ventured her next question, Yoshino's right shoulder gave a twitch at the word.@
+`  "You know, art, writing, music. Culture."@
+ld c,yosino7,10
+`  "...Heh."@
+stop
+`  Yoshino's shoulder jerked again.@
+ld l,kouko9,10
+ld r,fuko2,10
+
+`  With expressions that seemed to say, "uh-oh," Ms. Kouko and Fuko both turned to watch him.\
+
+`  "Heh, heh, heh..."@
+cl a,10
+bgm "bgm/524.mid"
+`  Just then, I could've sworn I heard a lively swell of music.@ No, really. It was clear as day.@
+ld c,yosino8,10
+`  "Yes, THAT is the question!"
+`  There was no mistaking those licks.@ Johnny B. Goode was playing!\
+
+`  Yoshino's eyes were wide and gleaming as he began to speak with a sudden fervor.@
+`  "Yes, indeed! Where HAS the great culture of the world gone?!@"
+`  "No one even cares for novels or manga anymore!"@
+`  "But, oh! The music!@ Through the fire and flames, the soul of rock and roll burned ever brighter!"\
+
+`  I couldn't do anything but listen, dumbstruck.@ It was like Yoshino was possessed.@
+`  At least I knew I wasn't imagining it, because Kotomi and Tomoyo where just as agog as I was.@
+`  And seriously, what was with this music? Where was it coming from?@
+`  Fuko and Ms. Kouko didn't seem surprised. Was this normal for them?@
+`  As the music hit its stride, Yoshino's sermon reached a fever pitch.\
+
+ld c,yosino4,10
+`  "You know where rock and roll was born?@ Some lonesome corner, in some nowhere town!@
+`  That's right, somewhere just like this! It was no-goods, burn-outs, and drop-outs that gave the world rock!@
+`  Forget about rich man, poor man! Rock and roll is the great equalizer!!@
+`  All you need is SOUL, baby, soul!@ That's the ONLY thing, and the EVERYTHING!!@
+`  We're just barely alive here, now, but as long as we've got rock, we're LIVING!!@
+`  It's everything I ever dreamed of!@ Right here, right now, the realest, rawest heart of-"\
+
+`  "Yoshino."@
+stop
+ld c,yosino10,10
+`  ...Just as the music was about to peak, it stopped, leaving the echo of one last squealing chord.@
+`  Yoshino stiffened and meekly answered, "Yes'm," coming to his senses immediately.\
+
+ld c,yosino1,10
+`  "Well, anyway... you get the idea, right?@ Phew, I wore myself out there."@
+bgm "bgm/15.mid"
+`  "Looks like it's getting pretty late, anyway.@ I'm guessing you still have more you want to know, but let's pick this up tomorrow. All right? All right."@
+cl c,10
+ld r,kotomi1,10
+`  "Seeing as you brought up music, I can see we've developed fancy rings that can play guitars remotely, now."\
+
+ld l,yosino3,10
+`  Yoshino's eyes opened wide at Kotomi's observation.@
+`  As did Fuko and Ms. Kouko's.@
+`  I didn't understand what she was talking about, though, at least at first.\
+
+`  "Sharp eyes, there!@ Right you are, we can even do that, now."@
+cl a,10
+`  He held up his hands, spreading his fingers for us to see.@
+`  Each finger sported a shiny silver ring.@
+`  I hadn't noticed them at all...\
+
+ld l,yosino2,6
+`  "Well, like I said, that can wait.@
+`  We'll tell you more tomorrow, but for now, I think it's time we hit the sack."@
+ld r,kouko1,6
+`  "Kotomi, Tomoyo, would you like to sleep at our house?"
+
+`  The way she said it, it sounded like Ms. Kouko and Fuko didn't live together with Yoshino.@
+`  Either way, Kotomi politely declined.\
+
+`  "Thank you, but if it's okay, I think I'd rather rest here."@
+
+`  They locked eyes for a long moment, before Ms. Kouko eventually relented.@
+
+`  "How about you, Tomoyo?"@
+`  "Anywhere works for me."@
+`  "All right. Since you three just woke up today, why don't you stay here together tonight?@ Make sure to look out for them, $1."@
+`  "Huh? O-oh, sure."\
+
+`  I stuttered out a reply, caught off guard.@ Yoshino took advantage of my dork moment to chime in with a playful tone.@
+ld l,yosino3,10
+`  "Well, goodness, where shall I lay my head, then?@ It's still a little cold to be roughing it."@
+cl r,6
+ld r,fuko8,6
+`  "You can stay with us, Onii-chan."@
+ld l,yosino3,10
+`  At Fuko's invitation, Yoshino froze, choking out a "buh?"\
+
+`  "Good idea. There's not much room, but you're welcome."@
+ld l,yosino10,10
+`  "Hey, c'mon. That's, y'know...@ Kind of weird, right?"@
+`  "Why would it be?"@
+`  Ms. Kouko fixed a flustered Yoshino with a perplexed look.@ 
+`  Fuko had already left, saying she would clear some space for him.\
+
+cl a,10
+stop
+bg "bg\inbalack_yoru.jpg",6
+`  After all that... I was still feeling lost.@
+`  But if nothing else, at least I felt like I was getting a clearer picture of Yoshino, Fuko, and Ms. Kouko's relationship.\
+
+bgm "bgm/30.mid"
+`  They had left after that,leaving just the three of us in the room.@
+`  Some sort of long sleeping pad, kind of like a gym mat, had been laid on the floor.@ I supposed they had brought it here for us...@ And that we'd be sharing it tonight.\
+
+`  Tomoyo had just started at our school recently, and Kotomi didn't really talk to other people much, so they were practically strangers to me.@
+`  But, at some point Kotomi had settled on my right, with Tomoyo on my left,@ both of them sitting on the mat and hugging their knees.\
+
+`  Some sort of light fixture that looked like a naked bulb hung from the ceiling, casting a dim light.@
+`  Apparently, we could adjust the light by snapping our fingers and saying a number between 0 and 10.\
+
+`  "Hey... Why didn't you want to go stay with Ms. Kouko?"@
+ld c,kotomi4,6
+`  Kotomi mumbled a response without looking.@
+
+`  "She's too nice."@
+`  "Too nice...?"@
+`  "I... I'm still trying to process everything, I think I need a little time."
+ld c,kotomi2,10
+`  She sounded as if her thoughts were far, far away.@ She looked at me with a strained smile.\
+
+`  "Sorry, but could I have some time to think?"@
+`  "Oh... As in, don't talk to you?"@
+`  "Sorry... Do you mind?"@
+cl a,6
+`  I left her alone with her thoughts.@
+ld l,tomoyo1,6
+`  But then, Tomoyo suddenly stood and headed for the door.\
+
+`  "Where are you going?"@
+`  "I just want to get some air."@
+`  "Hey, hold on. It might be dangerous!@ You don't know what's out there."@
+`  "It'll be fine. I'm not going far."@
+ld r,kotomi1,6
+`  I glanced at Kotomi.@ She gave me a dismissive look, suggesting she wouldn't mind if I went along.@
+cl l,6
+`  Tomoyo was already closing the door behind her.\
+
+cl a,6
+stop
+bg "bg\machi_yoru2.jpg",6
+bgm "bgm/43.mid"
+`  I slipped out after her. She didn't seem to mind my tagging along.@
+`  Seeing the ramshackle shelter from the outside, it actually looked pretty sturdy...@ Compared to the surroundings, which were more or less flattened.\
+
+`  We walked for a little while, until we reached a wider road. It looked like a market district.@
+`  There wasn't a single light to be seen, but there was a faint glow, just enough to dimly see by.@
+`  Something big and round, like an oversized glass bead, was stationed in a commanding position in the center of a wide crossroads.@ Above it, projected on the night sky like some kind of hologram, was a glowing silver clock-face.@
+`  It read 1 in the morning,@ but even at this hour, there were still people out and about.\
+
+`  "Two hundred and fifty years have gone by, but everyone still basically dresses the same, huh?"@
+ld c,tomoyo7,6
+`  I couldn't help but mention it.@ "Actually, yeah," Tomoyo was quick to reply.@
+
+`  Everyone basically looked like they were right out of the 21st century.@ And even though we were wandering around in our school uniforms, no one gave us a second look.\
+
+`  "It basically feels the same, doesn't it?"@
+`  Tomoyo spoke as nonchalantly as if she was mentioning the weather.@
+ld c,tomoyo2,10
+`  "I thought it'd be like a whole new world. Oh, well."@
+`  "You're really taking this in stride..."@
+`  Tomoyo looked my way, her expression calm.@
+ld c,tomoyo7,10
+`  "We don't know when we can go home, so we might as well make the best of it, right?"\
+
+`  "You say 'when,' but we might just be stuck here for good..."@
+`  "And if freaking out about it would get me out of here, believe me, I'd be freaking out...@
+`  But something tells me that won't do us much good."@
+ld c,tomoyo10,10
+`  Tomoyo smiled cheerfully.@
+`  I grumbled, unable to muster much of a response.@
+`  She wasn't just putting up a brave front, I could tell she really meant it.\
+
+ld c,tomoyo6,10
+`  "So, like, $1..."@
+`  "So, like, what?"@
+
+`  She ignored that, pressing on.@
+`  "Doesn't this freak you out, us being here?"@
+`  "...Why do you ask?"\
+
+ld c,tomoyo7,10
+`  "Because I'm not really worried about it. Not at all.@
+`  But that's weird, though, right?@ You'd think I'd be having a total breakdown right about now...@ But, I've got nothing.@
+`  It's like I've just been whisked away to fairy-tale land."@
+`  "Any reasonable person would probably freak out if they woke up in fairy-tale land, too."@
+ld c,tomoyo3,10
+`  "Oh, yeah. Right, probably."\
+
+cl c,10
+`  As Tomoyo once again flatly replied, something occured to me.@
+`  I wasn't all that bothered, either, when I thought about it.@
+`  My world had been turned upside-down, but I felt strangely unconcerned.@
+`  The only thing on my mind was wandering around tomorrow, taking in the sights under the warm, spring sunshine.\
+
+`  "Now that you mention it, you might be right.@ I might be okay."@
+ld c,tomoyo7,10
+`  "Oh, really?"@
+`  "It makes me wonder, what'll happen tomorrow?@ I'm actually a little excited to find out."@
+`  "Yeah, me too.@
+`  When you look at it like that...@ It might not be all bad. Right?"@
+ld c,tomoyo2,10
+`  Tomoyo looked my way as she spoke.@ But this time, something in her expression seemed unsettled.\
+
+`  Great, she's losing it after all.@
+`  I chuckled under my breath. "Yeah, not so bad."@
+
+`  "What's so funny?"@
+cl c,10
+`  I just kept laughing. Tomoyo wrinkled her face and looked away.\
+
+ld c,tomoyo2,10
+`  And then, Tomoyo stopped.@ Her mouth hung slightly open as she looked skywards, then simply raised her right hand and pointed.@
+`  Still grinning, I looked up.@ My face fell slack at what I saw.\
+
+stop
+bg #000000,10
+bg "bg\tower_yoru.jpg",8
+bgm "bgm/37.mid"
+`  An enormous, dark, black spire stretched far, far into the sky.@
+`  The base of the tower stood wide across the horizon, and grew narrower in tiers as it climbed.@
+`  The structure didn't have a single light, but its obsidian lustre caught the twilight ever so slightly, until its shape melted into the night sky.\
+
+`  Once, I'd heard a story about how mankind tried to built a tower all the way to heaven...@
+`  But this angered God, and the tower was struck down.@
+`  But in that moment, with the enormous spire filling my view, I could have believed that this was that very tower.\
+
+`  "...I think I'm ready for bed now."@
+
+`  Gazing up at the spire, Tomoyo murmured in hushed tones, as if speaking to herself.\
+
+stop
+bg #000000,6
+bg "bg\inbalack_yoru.jpg",6
+bgm "bgm/30.mid"
+ld c,kotomi1,6
+`  Kotomi was still awake when we returned to the shack.@
+cl c,6
+`  Tomoyo simply said "good night," quickly wrapped herself in a cotton blanket, and curled up to sleep.@
+`  From lie-down to dreamland, she was out in just a few minutes.@
+`  I refrained from commenting, and simply breathed all my misgivings into a deep sigh.\
+
+`  "What was it like outside?"@
+
+`  Kotomi spoke up, glancing my way.@
+
+`  "Not as weird as I thought it'd be."@
+`  "So, it looked like home?"@
+`  "Yeah. There were a few things, but mostly."@
+`  "Nothing that really said, 'future,' then?"\
+
+`  "Pretty much... Did you think it'd be different?"@
+`  "We didn't really need to innovate or change much, even in our time."@
+`  So I didn't think there'd be any big, obvious, sweeping changes."@
+
+`  Kotomi turned to face me fully.@
+
+`  "But you said mostly, right?@
+`  So you did see something that definitely wasn't from our time?"\
+
+`  "...Yeah. We did."@
+`  "Like what?"@
+`  "I think I heard about it in history class, but do you remember the story about the giant tower they built long ago?@ The one that made God so angry, he destroyed it?"@
+`  "The Tower of Babel?"@
+`  "Yeah, exactly. There's something just like that, right in the middle of the city."@
+`  "Oh... Wow."@
+`  Kotomi went back to staring straight ahead, and went quiet.\
+
+bg #000000,10
+stop
+`  In the middle of the night, I opened my eyes to darkness.@
+`  I could hear faint sobs from Kotomi's direction.@
+`  It sounded as if she was doing her best to keep them in.\
+
+`  I thought about trying to do something...@ But I couldn't imagine anything that would help.@
+`  I thought back to my dad, for the first time since I woke up.@
+`  I pictured him coming home to an empty house, eating alone at the table, laying out the futon for bed...@
+`  But I just couldn't work up the feelings to cry over the thought.\
+
+`  Even so... At least until Kotomi stopped crying, I decided I'd stay awake.@
+`  I laid in the dark, thinking about my dad...@ Until I heard her breathing softly, asleep, and then finally closed my eyes.\
+delay 2000
+

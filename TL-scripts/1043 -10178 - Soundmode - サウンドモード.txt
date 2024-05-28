@@ -1,24 +1,24 @@
 ;---------------------------------------------------------------------------------
-;サウンドモード
+;sound mode
 ;---------------------------------------------------------------------------------
 *soundmode
 rmode 0
 textoff
 lsp 99,":s#FFFFFFＳｏｕｎｄ　Ｍｏｄｅ",230,0
 
-lsp 100,":s/17,17,0;#FFFFFF#17E0F0ＭＳより愛をこめて",50,110
-lsp 101,":s/17,17,0;#FFFFFF#17E0F0月童改",50,130
-lsp 102,":s/17,17,0;#FFFFFF#17E0F0編曲メグメル改",50,150
-lsp 103,":s/17,17,0;#FFFFFF#17E0F0メグメル改",50,170
-lsp 104,":s/17,17,0;#FFFFFF#17E0F0メグメルピアノ弾き",50,190
-lsp 105,":s/17,17,0;#FFFFFF#17E0F0空に光る改",50,210
-lsp 106,":s/17,17,0;#FFFFFF#17E0F0スカボローフェア",50,230
-lsp 107,":s/17,17,0;#FFFFFF#17E0F0渚改",50,250
+lsp 100,":s/17,17,0;#FFFFFF#17E0F0From MS with love",50,110
+lsp 101,":s/17,17,0;#FFFFFF#17E0F0tsukiwarabe",50,130
+lsp 102,":s/17,17,0;#FFFFFF#17E0F0Mag Mell new arrange",50,150
+lsp 103,":s/17,17,0;#FFFFFF#17E0F0Mag Mell arrange",50,170
+lsp 104,":s/17,17,0;#FFFFFF#17E0F0Mag mell piano version",50,190
+lsp 105,":s/17,17,0;#FFFFFF#17E0F0Shining in the sky arrange",50,210
+lsp 106,":s/17,17,0;#FFFFFF#17E0F0Scarborough fair",50,230
+lsp 107,":s/17,17,0;#FFFFFF#17E0F0nagisa arrange",50,250
 
 
-lsp 108,":s/17,17,0;#FFFFFF#17E0F0矜持",50,270
-lsp 109,":s/17,17,0;#FFFFFF#17E0F0Etude pour　les petites spercordes改",50,290
-lsp 110,":s/17,17,0;#FFFFFF#17E0F0戦いのソナタ",50,310
+lsp 108,":s/17,17,0;#FFFFFF#17E0F0pride",50,270
+lsp 109,":s/17,17,0;#FFFFFF#17E0F0Etude pour　les petites spercordes arrange",50,290
+lsp 110,":s/17,17,0;#FFFFFF#17E0F0Sonata of War",50,310
 lsp 111,":s/17,17,0;#FFFFFF#17E0F0３－１＝３",50,330
 
 
@@ -51,86 +51,86 @@ if %0=112 rmode 1:goto *extra
 
 *train
 play "bgm\train.mp3"
-曲名　ＭＳより愛をこめて
-制作　琉球\
+title　From MS with love
+author　ryukyu\
 stop
 goto *soundmode
 
 *tukiwarabe
 play "bgm\tukiwarabe.mp3"
-曲名　月童改
-制作　Ｔａｍ\
+title tsukiwarabe
+Author　Ｔａｍ\
 stop
 goto *soundmode
 
 *megmel
 play "bgm2/megmel.mp3"
-曲名　編曲メグメル改
-制作　Ｔａｍ
-編曲　皐月龍斗\
+title　Megmel new arrange
+producer　Ｔａｍ
+arrangement　satsuki ryuto \
 stop
 goto *soundmode
 
 *megmel2
 play "bgm\megmel.mp3"
-曲名　メグメル改
-制作　Ｔａｍ\
+title　meg mel arrange
+producer　Ｔａｍ\
 stop
 goto *soundmode
 
 *megmelpiano
 play "bgm2\megmel_piano.mp3"
-曲名　メグメルピアノ弾き
-制作　Ｔａｍ\
+title　meg mel piano version
+producer　Ｔａｍ\
 stop
 goto *soundmode
 
 *sorani
 play "bgm2\sorani_yes.mp3"
-曲名　空に光る改
-制作　Ｔａｍ\
+title　shining in the sky arrange
+producer　Ｔａｍ\
 stop
 goto *soundmode
 
 *ska
 play "bgm2\okarina.mp3"
-曲名　スカボローフェア
-演奏　紫の人\
+title　scarborrough fair
+performance　purple people\
 stop
 goto *soundmode
 
 *nagisa
 play "bgm\nagisa.mp3"
-曲名　渚改
-制作　Ｔａｍ\
+title　nagisa arrange
+producer　Ｔａｍ\
 stop
 goto *soundmode
 
 *pride
 play "bgm2\pride.mp3"
-曲名　矜持
-制作　Ｌｏｇｉｃ\
+title　pride
+prodcer　Ｌｏｇｉｃ\
 stop
 goto *soundmode
 
 *kotomi
 play "bgm2\etd-kotomi-theme.mp3"
-曲名　Ｅｔｕｄｅ　ｐｏｕｒ　ｌｅｓ　ｐｅｔｉｔｅｓ
-　　　ｓｐｅｒｃｏｒｄｅｓ改
-制作　皐月龍斗\
+title　Ｅｔｕｄｅ　ｐｏｕｒ　ｌｅｓ　ｐｅｔｉｔｅｓ
+　　　ｓｐｅｒｃｏｒｄｅｓ arrange
+author　satsuki ryuto\
 stop
 goto *soundmode
 
 *sonata
 play "bgm2\sonata-x.mp3"
-曲名　戦いのソナタ
-制作　琉球\
+title　sonata of war
+producer　ryukyu\
 stop
 goto *soundmode
 
 *tomoyo
 play "bgm2\tomoyo_end.mp3"
-曲名　３－１＝３
-制作　Ｌｏｇｉｃ\
+title　３－１＝３
+producer　Ｌｏｇｉｃ\
 stop
 goto *soundmode

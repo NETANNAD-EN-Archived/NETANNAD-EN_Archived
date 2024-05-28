@@ -1,2 +1,2 @@
-;右クリックメニューの設定
-rmenu "《ウィンドウ消去》",windowerase,"《セーブ》",save,"《ロード》",load,"《読み返す》",lookback,"《タイトルへ》",reset,"《ゲーム終了》",end
+;Right-click menu settings
+rmenu `《Hide Text Window》`,windowerase,`《Save》`,save,`《Load》`,load,`《Read again》`,lookback,`《Skip to Choice》`,SKIP,`《Quit to Title》`,reset,`《Quit to Desktop》`,end
