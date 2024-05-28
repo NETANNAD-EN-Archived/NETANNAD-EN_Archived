@@ -15,3 +15,25 @@ In the near future, A.D.2265. There is a huge tower above the capital of Japan, 
 ## Project
 
 This project's goal is to patch the game and translate the 10 000 lines of gamescript and various graphical assets into English
+
+
+## Download
+
+[NETANNAD -ネタナド- : Team Netannad](https://archive.org/details/netannad)
+
+## Patch
+
+- Get the latest patch release at [Releases](https://github.com/NETANNAD-EN/NETANNAD-EN_ver.2.00/releases) and copy and paste the files to your NETANNAD folder
+- Launch the game with ```netannad_en.exe```
+
+
+## Credits
+
+This section is updated to reflect contributors
+
+- [Tonks - Original Author - Sub scripter](misskey.io/@tonks_smr)
+- [Denden - Main Scripter](https://x.com/densuke_x)
+- The rest of the people involved with the orignial NETANNAD
+[Duralumin - Translation](misskey.io/@tonks_smr)
+[ShNova - Translation](https://x.com/ShigetoKoko)
+[Engine work - Playmer - ONScripter-Fork](https://github.com/playmer/ONScripter-EN-Official)
