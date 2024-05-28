@@ -1,4 +1,5 @@
 # NETANNAD-EN_ver.2.00
+
 A translation project aiming to translate NETANNAD into English
 
 ![NETANNAD EN](https://i.imgur.com/RgblV50.png)
@@ -6,6 +7,7 @@ A translation project aiming to translate NETANNAD into English
 ![Contribution callout](https://i.imgur.com/qdn7dK8.png)
 
 ## About
+
 In 2003, members of the leaf key bulletin board fed up with the multiple delays of Clannad jokingly proposed the idea of making it themselves. This led to NETANNAD, a dystopian sci fi visual novel with Clannad's characters that released before the actual game
 
 ## Description
@@ -34,6 +36,6 @@ This section is updated to reflect contributors
 - [Tonks - Original Author - Sub scripter](misskey.io/@tonks_smr)
 - [Denden - Main Scripter](https://x.com/densuke_x)
 - The rest of the people involved with the orignial NETANNAD
-[Duralumin - Translation](misskey.io/@tonks_smr)
-[ShNova - Translation](https://x.com/ShigetoKoko)
-[Engine work - Playmer - ONScripter-Fork](https://github.com/playmer/ONScripter-EN-Official)
+- [Duralumin - Translation](misskey.io/@tonks_smr)
+- [ShNova - Translation](https://x.com/ShigetoKoko)
+- [Engine work - Playmer - ONScripter-Fork](https://github.com/playmer/ONScripter-EN-Official)
