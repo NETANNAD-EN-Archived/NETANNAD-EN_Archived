@@ -1,25 +1,25 @@
 ;---------------------------------------------------------------------------------
-;sound mode
+;Sound mode
 ;---------------------------------------------------------------------------------
 *soundmode
 rmode 0
 textoff
 lsp 99,":s#FFFFFFＳｏｕｎｄ　Ｍｏｄｅ",230,0
 
-lsp 100,":s/17,17,0;#FFFFFF#17E0F0From MS with love",50,110
-lsp 101,":s/17,17,0;#FFFFFF#17E0F0tsukiwarabe",50,130
-lsp 102,":s/17,17,0;#FFFFFF#17E0F0Mag Mell new arrange",50,150
-lsp 103,":s/17,17,0;#FFFFFF#17E0F0Mag Mell arrange",50,170
-lsp 104,":s/17,17,0;#FFFFFF#17E0F0Mag mell piano version",50,190
-lsp 105,":s/17,17,0;#FFFFFF#17E0F0Shining in the sky arrange",50,210
-lsp 106,":s/17,17,0;#FFFFFF#17E0F0Scarborough fair",50,230
-lsp 107,":s/17,17,0;#FFFFFF#17E0F0nagisa arrange",50,250
+lsp 100,":s/17,17,0;#FFFFFF#17E0F0`From MS With Love`",50,110
+lsp 101,":s/17,17,0;#FFFFFF#17E0F0`Tsukiwarabe",50,130
+lsp 102,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell New Arrange`",50,150
+lsp 103,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell Arrange`",50,170
+lsp 104,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell Piano Version`",50,190
+lsp 105,":s/17,17,0;#FFFFFF#17E0F0`Shining in the Sky Arrange`",50,210
+lsp 106,":s/17,17,0;#FFFFFF#17E0F0`Scarborough Fair`",50,230
+lsp 107,":s/17,17,0;#FFFFFF#17E0F0`Nagisa Arrange`",50,250
 
 
-lsp 108,":s/17,17,0;#FFFFFF#17E0F0pride",50,270
-lsp 109,":s/17,17,0;#FFFFFF#17E0F0Etude pour　les petites spercordes arrange",50,290
-lsp 110,":s/17,17,0;#FFFFFF#17E0F0Sonata of War",50,310
-lsp 111,":s/17,17,0;#FFFFFF#17E0F0３－１＝３",50,330
+lsp 108,":s/17,17,0;#FFFFFF#17E0F0`Pride`",50,270
+lsp 109,":s/17,17,0;#FFFFFF#17E0F0`Etude Pour　Les Petites Spercordes Arrange`",50,290
+lsp 110,":s/17,17,0;#FFFFFF#17E0F0`Sonata of War`",50,310
+lsp 111,":s/17,17,0;#FFFFFF#17E0F03-1=3",50,330
 
 
 lsp 112,":s/17,17,0;#FFFFFF#17E0F0【`Back`】",300,360
@@ -51,86 +51,86 @@ if %0=112 rmode 1:goto *extra
 
 *train
 play "bgm\train.mp3"
-title　From MS with love
-author　ryukyu\
+`Title　From MS With Love
+`Author　Ryukyu\
 stop
 goto *soundmode
 
 *tukiwarabe
 play "bgm\tukiwarabe.mp3"
-title tsukiwarabe
-Author　Ｔａｍ\
+`Title Tsukiwarabe
+`Author　Tam\
 stop
 goto *soundmode
 
 *megmel
 play "bgm2/megmel.mp3"
-title　Megmel new arrange
-producer　Ｔａｍ
-arrangement　satsuki ryuto \
+`Title　Megmel New Arrange
+`Producer　Tam
+`Arrangement　Satsuki Ryuto \
 stop
 goto *soundmode
 
 *megmel2
 play "bgm\megmel.mp3"
-title　meg mel arrange
-producer　Ｔａｍ\
+`Title　Meg Mel Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *megmelpiano
 play "bgm2\megmel_piano.mp3"
-title　meg mel piano version
-producer　Ｔａｍ\
+`Title　Meg Mel Piano Version
+`Producer　Tam\
 stop
 goto *soundmode
 
 *sorani
 play "bgm2\sorani_yes.mp3"
-title　shining in the sky arrange
-producer　Ｔａｍ\
+`Title　Shining in the Sky Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *ska
 play "bgm2\okarina.mp3"
-title　scarborrough fair
-performance　purple people\
+`Title　Scarborrough Fair
+`Performance　Purple People\
 stop
 goto *soundmode
 
 *nagisa
 play "bgm\nagisa.mp3"
-title　nagisa arrange
-producer　Ｔａｍ\
+`Title　Nagisa Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *pride
 play "bgm2\pride.mp3"
-title　pride
-prodcer　Ｌｏｇｉｃ\
+`Title　Pride
+`prodcer　Logic\
 stop
 goto *soundmode
 
 *kotomi
 play "bgm2\etd-kotomi-theme.mp3"
-title　Ｅｔｕｄｅ　ｐｏｕｒ　ｌｅｓ　ｐｅｔｉｔｅｓ
-　　　ｓｐｅｒｃｏｒｄｅｓ arrange
-author　satsuki ryuto\
+`Title Etude Pour Les Petites
+`　　　Spercodes Arrange
+`Author　Satsuki Ryuto\
 stop
 goto *soundmode
 
 *sonata
 play "bgm2\sonata-x.mp3"
-title　sonata of war
-producer　ryukyu\
+`Title　Sonata of War
+`Producer　Ryukyu\
 stop
 goto *soundmode
 
 *tomoyo
 play "bgm2\tomoyo_end.mp3"
-title　３－１＝３
-producer　Ｌｏｇｉｃ\
+`Title　3-1=3
+`Producer　Logic\
 stop
 goto *soundmode

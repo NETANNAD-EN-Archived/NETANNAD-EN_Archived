@@ -4,19 +4,17 @@ locate 0,0
 csp -1
 bg #000000,10
 mov $1,"Okazaki";Default Last Name
-mov $2,"Furuya";Default First Name		(*Japanese name order. Can we swap?)
-Your current name is Okazaki Furuya. Use this name?	(*Japanese name order. Can we swap?)
+mov $2,"Tomoya";Default First Name
+`Your current name is Okazaki Tomoya. Use this name?
 br
-select "No",*change,"Yes",*kinmirai
+select `No`,*change,`Yes`,*kinmirai
 *change
-inputstr $1,"Enter your last name. (Up to 4 full-width characters)",16,1
-inputstr $2,"Enter your first name. (Up to 4 full-width characters)",16,1	(*Japanese name order. Can we swap?)
+inputstr $1,`Enter your last name. (Up to 4 full-width characters)`,16,1
+inputstr $2,`Enter your first name. (Up to 4 full-width characters)`,16,1
 br
 
-Your name will be $1$2. Use this name?
+`Your name will be $1 $2. Use this name?
 br
-select "Yes",*kinmirai,"No",*newstart
+select `Yes`,*kinmirai,`No`,*newstart
 
 ;--------------------In the near future----------------------------
-*kinmirai
-stop
