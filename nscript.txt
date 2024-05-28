@@ -1,3 +1,4 @@
+;gameid NETANNAD
 ;---------------------------------------------------------------------------------
 ;定義ブロック開始
 ;---------------------------------------------------------------------------------
@@ -248,15 +249,15 @@ stralias rudo4,"chara\rudo\rudo04.jpg"
 ;------------------------------------------------------
 ;よく使う画像のファイルエイリアス設定
 ;------------------------------------------------------
-stralias balack_1,"bg\inbalack.jpg"     ;[balack_1]エイリアスに"bg/balack.jpg"を格納。
-stralias balack_2,"bg/balack02.jpg"   ;バラック内テーブル（昼）
-stralias balack_3,"bg/iriguchi.jpg"   ;バラック入り口
-stralias balack_4,"bg/balack03.jpg"   ;公子先生の部屋
-stralias machi_1,"bg/machi_hiru.jpg"  ;荒廃した街
-stralias machi_2,"bg/machi_yoru.jpg"  ;上空から見下ろした暗い街
-stralias machi_3,"bg/machi003.jpg"    ;町並み
+stralias balack_1,"bg\inbalack.jpg"     ;[balack_1]エイリアスに"bg\balack.jpg"を格納。
+stralias balack_2,"bg\balack02.jpg"   ;バラック内テーブル（昼）
+stralias balack_3,"bg\iriguchi.jpg"   ;バラック入り口
+stralias balack_4,"bg\balack03.jpg"   ;公子先生の部屋
+stralias machi_1,"bg\machi_hiru.jpg"  ;荒廃した街
+stralias machi_2,"bg\machi_yoru.jpg"  ;上空から見下ろした暗い街
+stralias machi_3,"bg\machi003.jpg"    ;町並み
 stralias tower_yoru,"bg\tower_yoru.jpg"
-stralias tower_1,"bg/tower01.jpg"     ;ジッグラド遠景昼
+stralias tower_1,"bg\tower01.jpg"     ;ジッグラド遠景昼
 
 
 
@@ -281,12 +282,14 @@ globalon
 ;ウィンドウタイトル
 caption "NETANNAD"
 ;”？」。が出たら、クリックするように設定。
-clickstr "！？」。",1
+;clickstr "！？」。",1
+;changed for better EN read flow and ONScripter support
+clickstr ``, 2
 ;バージョン
 versionstr "NETANNAD","Copyright 2004.Team Netannad."
 
-;右クリックメニューの設定
-rmenu "《ウィンドウ消去》",windowerase,"《セーブ》",save,"《ロード》",load,"《読み返す》",lookback,"《タイトルへ》",reset,"《ゲーム終了》",end
+;Right-click menu settings
+rmenu `《Hide Text Window》`,windowerase,`《Save》`,save,`《Load》`,load,`《Dialogue History》`,lookback,`《Skip to Choice》`,SKIP,`《Return to Title》`,reset,`《Quit to Desktop》`,end
 ;右クリック時の文字設定など
 menusetwindow 25,25,2,5,0,1,#4B4B4B
 ;右クリック時の選択肢色
@@ -304,35 +307,35 @@ shadedistance 1,2
 ;回想モードの色
 lookbackcolor #B5D5FB
 ;右クリック時の各名前
-savename "ＳＡＶＥ","ＬＯＡＤ","ファイル"
+savename "ＳＡＶＥ","ＬＯＡＤ",`File`
 ;通常選択肢をクリックしたとき等になる音
 selectvoice "wave/null.wav","wave/oncursor.wav","wave/push.wav"
 
 ;メニューバー設定
 resetmenu
-insertmenu "終了",END
-insertmenu "バージョン情報",VERSION
-insertmenu "音量",DWAVEVOLUME
-insertmenu "選択肢までスキップ",SKIP
-insertmenu "オートモード",AUTO
-insertmenu "環境設定",SUB
-insertmenu "効果音",SUB,1
-insertmenu "鳴らす",WAVEON,2
-insertmenu "鳴らさない",WAVEOFF,2
-insertmenu "クリック設定",SUB,1
-insertmenu "普通",CLICKDEF,2
-insertmenu "ページごと",CLICKPAGE,2
-insertmenu "フォント",FONT,1
-insertmenu "文字速度",SUB,1
-insertmenu "遅い",TEXTSLOW,2
-insertmenu "普通",TEXTMIDDLE,2
-insertmenu "速い",TEXTFAST,2
-insertmenu "スキップ設定",sub,1
-insertmenu "全てのメッセージを飛ばす",kidokuoff,2
-insertmenu "既読のテキストのみ飛ばす",kidokuon,2
-insertmenu "画面",SUB,1
-insertmenu "フルスクリーン",FULL,2
-insertmenu "ウィンドウ",WINDOW,2
+insertmenu "Exit",END
+insertmenu "Version Information",VERSION
+insertmenu "Volume",DWAVEVOLUME
+insertmenu "Skip to Choice",SKIP
+insertmenu "Auto mode",AUTO
+insertmenu "Settings",SUB
+insertmenu "Sound effects",SUB,1
+insertmenu "On",WAVEON,2
+insertmenu "Off",WAVEOFF,2
+insertmenu "Click settings",SUB,1
+insertmenu "Per line",CLICKDEF,2
+insertmenu "Per page",CLICKPAGE,2
+insertmenu "Font",FONT,1
+insertmenu "Text speed",SUB,1
+insertmenu "Slow",TEXTSLOW,2
+insertmenu "Default",TEXTMIDDLE,2
+insertmenu "Fast",TEXTFAST,2
+insertmenu "Skip settings",sub,1
+insertmenu "Skip all messages",kidokuoff,2
+insertmenu "Skip read text",kidokuon,2
+insertmenu "Screen settings",SUB,1
+insertmenu "Fullscreen",FULL,2
+insertmenu "Windowed",WINDOW,2
 
 
 ;-----------------------------------
@@ -390,14 +393,14 @@ bgm "bgm2/megmel.mp3"
 *loop
 allspresume
 ;---------------------メニュー-------------------
-bg "bg/titlelogo.jpg",0
+bg "bg\titlelogo.jpg",0
 textoff
 
 lsp 0,":s#FFFFFF#17E0F0Ｓｔａｒｔ",450,150
 lsp 1,":s#FFFFFF#17E0F0Ｌｏａｄ",450,200
-lsp 2,":s#FFFFFF#17E0F0Ｏｐｔｉｏｎ",450,250
-if %omake=1 lsp 3,":s#FFFFFF#17E0F0Ｅｘｔｒａ",450,300
-if %omake=0 lsp 3,":s#FFFFFF#A4A4A4Ｅｘｔｒａ",450,300
+lsp 2,":s#FFFFFF#17E0F0Ｏｐｔｉｏｎｓ",450,250
+if %omake=1 lsp 3,":s#FFFFFF#17E0F0Ｅｘｔｒａｓ",450,300
+if %omake=0 lsp 3,":s#FFFFFF#A4A4A4Ｅｘｔｒａｓ",450,300
 if %omake=1 lsp 6,":s#FFFFFF#17E0F0Ａｆｔｅｒ",450,350
 
 print 10
@@ -435,7 +438,7 @@ goto *loop
 ;-------------------ロード-------------------------------
 *load
 allsphide              ;全てのスプライトを非表示
-bg "bg/sky01.jpg",10
+bg "bg\sky01.jpg",10
 systemcall load
 return
 
@@ -456,7 +459,7 @@ return
 
 *option
 csp -1;全てのスプライト消去
-bg "option.jpg",10
+bg "EN\option.jpg",10
 
 *optionloop
 
@@ -466,17 +469,17 @@ bg "option.jpg",10
 ;-----------------------------------------
 
 
-lsp 10,":s/17,17,0;#FFFFFF#17E0F0１秒",70,100
-lsp 11,":s/17,17,0;#FFFFFF#17E0F0２秒",120,100
-lsp 12,":s/17,17,0;#FFFFFF#17E0F0３秒",170,100
-lsp 13,":s/17,17,0;#FFFFFF#17E0F0４秒",220,100
-lsp 14,":s/17,17,0;#FFFFFF#17E0F0５秒",270,100
+lsp 10,":s/17,17,0;#FFFFFF#17E0F0`1 Sec`",70,100
+lsp 11,":s/17,17,0;#FFFFFF#17E0F0`2 Sec`",120,100
+lsp 12,":s/17,17,0;#FFFFFF#17E0F0`3 Sec`",170,100
+lsp 13,":s/17,17,0;#FFFFFF#17E0F0`4 Sec`",220,100
+lsp 14,":s/17,17,0;#FFFFFF#17E0F0`5 Sec`",270,100
 
-if %auto_speed=1000 lsp 10,":s/17,17,0;#FF0000１秒",70,100
-if %auto_speed=2000 lsp 11,":s/17,17,0;#FF0000２秒",120,100
-if %auto_speed=3000 lsp 12,":s/17,17,0;#FF0000３秒",170,100
-if %auto_speed=4000 lsp 13,":s/17,17,0;#FF0000４秒",220,100
-if %auto_speed=5000 lsp 14,":s/17,17,0;#FF0000５秒",270,100
+if %auto_speed=1000 lsp 10,":s/17,17,0;#FF0000`1 Sec`",70,100
+if %auto_speed=2000 lsp 11,":s/17,17,0;#FF0000`2 Sec`",120,100
+if %auto_speed=3000 lsp 12,":s/17,17,0;#FF0000`3 Sec`",170,100
+if %auto_speed=4000 lsp 13,":s/17,17,0;#FF0000`4 Sec`",220,100
+if %auto_speed=5000 lsp 14,":s/17,17,0;#FF0000`5 Sec`",270,100
 
 automode_time %auto_speed
 ;-----------------------------------------
@@ -486,26 +489,26 @@ automode_time %auto_speed
 ;テキストウィンドウの濃度関連
 ;-----------------------------------------
 
-lsp 15,":s/17,17,0;#FFFFFF#17E0F0普通",78,240
-lsp 16,":s/17,17,0;#FFFFFF#17E0F0薄い",78,260
-lsp 17,":s/17,17,0;#FFFFFF#17E0F0濃い",78,280
+lsp 15,":s/17,17,0;#FFFFFF#17E0F0`Normal`",78,240
+lsp 16,":s/17,17,0;#FFFFFF#17E0F0`Light`",78,260
+lsp 17,":s/17,17,0;#FFFFFF#17E0F0`Dark`",78,280
 
-if %w_noudo=0 lsp 15,":s/17,17,0;#FF0000普通",78,240:setwindow 30,16,26,14,22,22,0,8,20,1,1,#848484,0,0,639,479;普通
-if %w_noudo=1 lsp 16,":s/17,17,0;#FF0000薄い",78,260:setwindow 30,16,26,14,22,22,0,8,20,1,1,#DCDCDC,0,0,639,479;薄い
-if %w_noudo=2 lsp 17,":s/17,17,0;#FF0000濃い",78,280:setwindow 30,16,26,14,22,22,0,8,20,1,1,#525852,0,0,639,479;濃い
+if %w_noudo=0 lsp 15,":s/17,17,0;#FF0000`Normal`",78,240:setwindow 30,16,26,14,22,22,0,8,20,1,1,#848484,0,0,639,479;普通
+if %w_noudo=1 lsp 16,":s/17,17,0;#FF0000`Light`",78,260:setwindow 30,16,26,14,22,22,0,8,20,1,1,#DCDCDC,0,0,639,479;薄い
+if %w_noudo=2 lsp 17,":s/17,17,0;#FF0000`Dark`",78,280:setwindow 30,16,26,14,22,22,0,8,20,1,1,#525852,0,0,639,479;濃い
 
 
 ;エフェクト毎のウィンドウ消去設定関連
 ;-----------------------------------------
 
-lsp 18,":s/17,17,0;#FFFFFF#17E0F0テキストウィンドウを毎回消さない",78,360
-lsp 19,":s/17,17,0;#FFFFFF#17E0F0テキストウィンドウを毎回消す",78,380
+lsp 18,":s/17,17,0;#FFFFFF#17E0F0`Show`",78,360
+lsp 19,":s/17,17,0;#FFFFFF#17E0F0`Hide`",78,380
 
-if %etx=0 lsp 18,":s/17,17,0;#FF0000テキストウィンドウを毎回消さない",78,360
-if %etx=1 lsp 19,":s/17,17,0;#FF0000テキストウィンドウを毎回消す",78,380
+if %etx=0 lsp 18,":s/17,17,0;#FF0000`Show`",78,360
+if %etx=1 lsp 19,":s/17,17,0;#FF0000`Hide`",78,380
 
 ;「戻る」ボタンの設定関連
-lsp 20,":s/18,18,2;#FFFFFF#17E0F0【戻る】",273,431
+lsp 20,":s/18,18,2;#FFFFFF#17E0F0`【Back】`",273,431
 
 ;オプションメニューを描画
 print 1
@@ -569,504 +572,575 @@ return
 
 
 
-;------------------ニューゲーム開始---------------------
+;------------------New Game---------------------
 *newstart
 locate 0,0
 csp -1
 bg #000000,10
-mov $1,"岡崎";デフォルトの名字
-mov $2,"朋也";デフォルトの名前
-現在の名前は岡崎朋也です。変更しますか？
+mov $1,"Okazaki";Default Last Name
+mov $2,"Tomoya";Default First Name
+`Your current name is Tomoya Okazaki. Use this name?
 br
-select "はい",*change,"いいえ",*kinmirai
+select `No`,*change,`Yes`,*kinmirai
 *change
-inputstr $1,"主人公の名字を入力して下さい。（全角４文字まで）",16,1
-inputstr $2,"主人公の名前を入力して下さい。（全角４文字まで）",16,1
-
-主人公の名前は$1$2でよろしいですか？
+inputstr $2,`Enter your first name. (Up to 4 full-width characters)`,16,1
+inputstr $1,`Enter your last name. (Up to 4 full-width characters)`,16,1
 br
-select "はい",*kinmirai,"いいえ",*newstart
 
-;--------------------近未来扁開始----------------------------
+`Your name will be $2 $1. Use this name?
+br
+select `Yes`,*kinmirai,`No`,*newstart
+
+;--------------------In the near future----------------------------
 *kinmirai
 stop
-;--------------------プロローグ開始--------------------------
+;--------------------Prologue--------------------------
 bg "bg\tenjou.jpg",19
 !sd
-;select "このまま",*next,"バラック３日目",*bara3,"ジッグラト編",*jiggrat,"ジッグラド４日目",*tabidachi,"給水塔",*kyusui,"東京",*tokyo,"スメール内２",*insmail2,"東京２日目",*tokyo2nd,"東京５日目",*tokyo5
+;select "Continue",*next,"Barracks, Day 3",*bara3,"Ziggurat",*jiggrat,"Ziggurat, Day 4",*tabidachi,"Water Tower",*kyusui,"Tokyo",*tokyo,"Sumeru, Day 2",*insmail2,"Tokyo, Day 2",*tokyo2nd,"Tokyo, Day 5",*tokyo5
 
 *next
-　目覚めて最初に見たものは赤茶けた天井だった。
-　薄い金属の板が並べられた天井で、窓からの光を受けて凹凸の多い表面がはっきりとよく見える。赤茶けているのは、その金属に浮いた錆の色だった。
-　眠気の抜けきらない頭に新鮮な空気を送りこもうと、鼻から大きく息を吸いこんだ。
-　……強い機械油の臭いがした。
-　今までに嗅いだことのない、かすかな甘さを孕んだ機械油の臭い――@
-delay 500
-「お、気がついたみたいだな」\
-　突然の声に跳ね起きた。
-bg balack_1,0
-　一気に心臓の鼓動が激しくなる。
-　だが声をかけてきた男の顔を見て動悸が少しやわらいだ。
-ld c,yosino1,6
-　その顔に見覚えがあったからだ。電気工の兄ちゃん。名前はたしか――@
-bgm "bgm/43.mid"
-「……(芳野祐介/よしのゆうすけ)」
-ld c,yosino3,10
-「何だ？　いきなり人の名前を呼び捨てにして。もっと他に言うべきことがあるだろ、こういう場合」
 
-　芳野はあきれたように笑いながら言った。\
-「言うべきこと……そう……そうだ。ここは一体どこだ？　何で俺が電気屋の兄ちゃんと……こんなところに……」
+br
+`  The first thing I saw when i opened my eyes was a reddish-brown-stained ceiling.@
+`  The ceiling was made up of thin metallic slats, most of them uneven and oddly fitted.@ The haphazard construction was clear to see in the light from the windows.@ Rust clung to the metal, lending the entire ceiling a reddish discoloration.@
+`  I drew a long breath through my nose, hoping to chase the sleep from my head.@
+`  The scent of machine oil hung thick in the air.@
+`  But amongst the reek of gears and oil, there was a faint, cloying sweetness to the air I didn't recognize...@
+delay 500
+`  "Well, look who's up."\
+
+`  I sprang up, the voice startling me to my senses.@
+bg balack_1,0
+repaint
+`  I could feel my heart suddenly pounding in my chest.@
+`  But once I saw who had spoken, I started to catch my breath.@
+ld c,yosino1,6
+`  I knew him...@ It was that electrician guy. I'm pretty sure his name was...@
+bgm "bgm/43.mid"
+`  "Yoshino Yusuke?"@
+ld c,yosino3,10
+`  "Did you just say my full name? That's a weird thing to do.@ And shouldn't there be something else on your mind, first?"@
+`  He feigned an exasperated smirk as he spoke.\
+
+`  "I... Yeah, you're right...@ Where am I? How did I get here?@ And... what are you doing here?"@
 
 ld c,yosino7,10
-　チ・チ・チ・チ・チ。
-　軽やかな舌打ちが返ってきた。
+`  "Tsk, tsk, tsk, tsk."@
+`  He clucked his tongue softly at me.@
 
-「そいつはまたあとだ。同じこと何度も説明するのは面倒なんでね。そいつらが起きたらちゃんと聞かせてやるよ」
-「そいつら？」\
+`  "No, no. We'll get to that.@ But I don't want to have to keep going over it, so I'll explain once they're awake."@
+`  "They? Who-"\
+
 cl c,6
-　ふと右手の指先に何か柔らかいものがあたっているのに気づいた。
-　目を遣って慌ててそれを引っこめた。
-　コンクリートの床に敷かれたマットレスのようなものの上に横たわる女の太腿に触れていたのだ。
-　同じ学校の二年生の(坂上智代/さかがみともよ)。
-　その隣にもう一人。同じクラスの一ノ瀬ことみが規則正しい寝息を立てていた。\
-「これは一体、どういう……？」
+`  That was when I noticed a soft sensation at the fingertips of my right hand.@
+`  My eyes searched out the sensation, and what I saw made me yank my hand away.@ 
+`  I had been touching a girl's thigh, who was resting on her side on some sort of mattress laid on the concrete floor.@
+`  I recognized her from school... It was Tomoyo Sakagami, a second-year.@
+`  And next to her was Kotomi Ichinose, a girl from my class, snoring away in exemplary fashion.\
+
+`  "What's going on? Why are they...?"@
 ld c,yosino2,6
-「だからあとでちゃんと聞かせてやる。
-　それよりも俺はあんたの言葉を待ってるんだよ。言うべきことがあるだろ？　人として」
-「……言うべきこと？」
-「この状況から分かるだろ。助けてやったんだよ、あんたらを。い・の・ち・の恩人」　
-「……それで？」
-「命の恩人には言うべき言葉があるんじゃないのかね、$1くん？」
-「ああ……ありがとう」
+`  "Like I said, we'll get to that in a minute."@
+`  "But first, I'm still waiting to hear you say you-know-what.@ You know, the first thing that ought to come to mind?"@
+`  "Er... Like what?"@
+`  "Well, let's examine the situation.@ I rescued you three, you know? Saved your lives."@
+`  "Uh... okay?"@
+`  "And what should you say to someone who saves your life, hmm, $1?"@
+`  "Oh... Thanks."@
 ld c,yosino9,10
-　それを聞くと芳野はさも満足そうに笑って見せた。\
-「あっ、気がついたんですね」
+`  An extremely satisfied-looking smile sprang to Yoshino's face.\
+
+`  "Oh, you're awake."@
 cl c,10
 ld l,yosino1,10
-　金属のきしむ重い音がして扉が開き、外の光と一緒に少女が入ってきた。
+`  The door opened with a squeal of grating metal, letting in the outside sunlight... And a young girl.@
 ld r,fuko1,6
-　逆光でよく顔が見えないが、声でそれが同じ学校の一年生の(伊吹風子/いぶきふうこ)であることが分かった。\
-「どうして伊吹が……何だか、頭がおかしくなりそうだ」
+`  The glare from the light obscured her face, but judging by the voice, it was another girl from my school... Fuko Ibuki, a first year.\
+
+`  "Fuko? You're here too?@ I feel like I'm going crazy..."@
 ld r,fuko2,10
-「えっ？　お兄ちゃん、何も説明してないの？」
-「…………お兄ちゃん？」
+`  "Huh? Onii-chan, you didn't tell him?"@
+`  "...Onii-chan?"
 
-　お兄ちゃんって何だ？　たしか伊吹は公子先生の妹で……。
-　ますます激しくなる俺の混乱を打ち消すように、風子がいそいそと手を振って見せた。
+`  What was that supposed to mean? As I recalled, Fuko was Ms. Kouko's sister, so if Yoshino was her her Onii-san, that would mean...@
+`  My head started spinning, until Fuko began flapping her hands in denial, as if trying to sweep away my deepening confusion.@
 ld r,fuko4,10
-「あ……ちっ、違うんです！　別に血が繋がっているとか、そういうのじゃなくて！」\
+`  "O-oh! No, not like that! we're not actually related or anything!"\
+
 ld l,yosino11,10
-「『電気屋のお兄ちゃん』を短くすりゃ『お兄ちゃん』だろ。呼びたきゃあんたもそう呼んでいい」
+`  "It's just a nickname. You know, as in 'the nice Onii-san from the electric company.'@ I don't mind if you call me that too, if you want."@
 
-　あまり面白くもなさそうに芳野が口を挟んだ。
-　風子が何かを言おうとして、止めた。芳野はそれを見て小さく鼻を鳴らした。
-　そうしたやりとりから二人の間に親密なもの――@ちょうど兄妹のような関係を感じた。
-　いったいどうなっているんだ。つまらない夢でも見ているのか？　どうして俺はこんなところに寝ていたんだ……。\
-「……まだ起きてそんなに経ってないけど、かなり疲れた。こいつら起こすからさ、俺の頭にかかっている黒い霧をどうにかしてくれ」
+`  Yoshino interjected with a casual tone.@
+`  Fuko began as if she had something to add, but stopped herself. Watching her, Yoshino gave a short, soft snort of amusement.@
+`  It almost seemed like they had some sort of inside joke.@ In that sense, they were certainly acting like siblings.@
+`  What was happening? Was this some kind of bizarre dream? How did I even get here...?\
+
+`  "...Listen, I know I just woke up, but I'm feeling really overwhelmed, here.@ I'm going to get them up, so can you please just tell us what's going on?"@
 ld r,fuko3,10
-「時間が来ないと起きないんです」
-　風子が落ち着いた目でこちらを見つめながら呟いた。
-　小さく一つ溜息をついて芳野が言葉を継いだ。
+`  "They won't wake up until it's time."@
+`  Fuko met my eyes calmly as she spoke.@
+`  With a short sigh, Yoshino chimed in.@
 ld l,yosino2,10
-「時間が来ればいやでも目覚める」
+`  "Even if they'd be better off asleep."@
 
-　ほらそんな感じにな。
+`  If that was supposed to be helpful, it wasn't.@
 cl a,10
-　――その言葉に応じるかのように二つの身体がもぞもぞと動いた。\
+`  But then, as if on cue, the two girls began to stir.\
+
 ld r,kotomi1,6
 ld l,tomoyo1,6
-　まずことみが制服の乱れを気にしながらゆっくりと身を起こし、智代が毛布をはね除けて飛び起きた。
+`  Kotomi was the first to come around, slowly picking herself up and tugging her school uniform straight.@ Tomoyo, on the other hand, threw off her blanket and sprang up off the mattress.@
 ld r,kotomi5,10
-　そのあまりの勢いにことみが小さく身をすくめる。
+`  Her sudden vigor seemed to startle Kotomi, who stiffened slightly.@
 ld l,tomoyo3,10
-「あ……あれ？」
-　智代は直立して呆然と辺りを見回した。
-　ことみは固まったまま沈黙している。
-　二人の頭のなかが手にとるように分かった。さっきの俺とまったく同じ疑問と不安に襲われているのだ。
+`  "Wha... Where am I?"@
+`  Tomoyo stood straight as she looked around, confused.@
+`  Meanwhile, Kotomi remained silent, momentarily frozen.@
+`  I had a pretty good idea of what they were going through, since I had woken up completely lost myself just a few moments earlier.@
 cl a,6
-「良かった。みんな揃ったのね」\
+`  "Oh, good, it looks like everyone's awake."\
+
 bg balack_2,6
 ld l,kouko1,6
-　緊張を破ったのは公子先生の声だった。
-　先生は灰色の袋のようなものを手に提げて入ってきた。
-「$1君と一ノ瀬さんまで来ちゃったか。そっちは見かけない子だけど、お友だち？」
-　先生の声には人を安心させる力がある――@二人の緊張が解けたようだ。智代は両腕の力を抜き、ことみの小さな溜息が聞こえた。\
+`  I recognized Ms. Kouko's voice, cutting through the tension in the room.@
+`  She was hefting what looked like a grey sack of some kind as she came inside.@
+`  "Oh, $1 and Kotomi, so you're here, now, too.@ I'm afraid I don't recognize her, though... is she a friend of yours?"@
+`  Her calming voice seemed to relax everyone present.@ Tomoyo dropped her arms, lowering her guard, and Kotomi gave a small sigh as she caught her breath.\
+
 ld r,tomoyo8,6
-「あ。はじめまして。坂上智代といいます」
-「はじめまして坂上さん。$1君たちに美術を教えたことがある(伊吹公子/いぶきこうこ)です。よろしくね」
+`  "Oh, um. Hello. My name's Tomoyo Sakagami."@
+`  "Well, nice to meet you, Tomoyo. I'm Kouko Ibuki, I used to be $1 and Kotomi's art teacher."
 
-　公子先生は灰色の袋をテーブルのうえに載せると、椅子を引いて俺たちに座るようにうながした。
-　長いこと雨晒しになっていたような粗末なテーブルと椅子だった。
-　芳野と風子はもう席についている。
+`  Ms. Kouko dropped the grey sack on the table, pulled out a chair, and nodded for us to sit down.@
+`  The table and chairs looked warped and weatherbeaten, as if they had been left outside for a long time.@
+`  I noticed Yoshino and Fuko had already joined her at the table.@
 cl a,6
-　全員が着席したところで芳野がおもむろに口を開いた。\
+`  When the rest of us had taken our seats, Yoshino began speaking, his tone delicate.\
 stop
+
 ld c,yosino2,6
-「さて。これから少し突拍子もない話を聞かせることになるが、そのまえにまず希望をとりたい」
-「希望？」
+`  "Okay. Now, this is going to be a lot to take in, but first, where would you prefer we start?"@
+`  "Start?"@
 
-　俺が問い返すと芳野は改まって咳払いをした。
+`  Yoshino marked my interjection by clearing his throat before continuing.@
 
-「結論から入るか。それとも長い前置きをした方が良いか。
-　きつい話になるから、前置きがあった方が良いと俺は思うんだが、早く今の状態を知りたいと言うなら――」\
-「早く教えてくれ！　俺はもう頭がおかしくなりそうなんだ！」
+`  "Do you want the full story, with all the gory details?@ Or would you rather cut to the chase?@
+`  Admittedly, things aren't great, so if you ask me, I'd take the backstory first, and work up to it.@ But, if you're in a hurry..."\
 
-　思わず席を立ち叫んだ。部屋がしんと静まりかえった。
-　公子先生が冷静な目でこちらを見ていた。
-　俺は自分が勝手なことを言っているのに気づき、席に着いた。
+`  "Would you just tell us what the hell is going on, already?!"@
+
+`  Unable to take it any longer, I jumped out of my chair and shouted.@ The air grew heavy with an awkward silence.@
+`  But Ms. Kouko, unfazed, shot me a cool glance.@
+`  Feeling abashed at my outburst, I dropped back down in my seat.@
 cl c,6
 ld c,kotomi4,6
-「……私も先に結論が聞きたい」
-　ことみが小さな声でそう告げた。芳野が智代に目を遣ると、彼女は無言で頷いて見せた。
+`  "...I agree. I want to know what we're doing here."\
+`  Softly, Kotomi murmured her assent.@ Yoshino turned towards Tomoyo, who silently nodded in agreement.@
 cl c,6
 ld c,yosino6,6
-「さて。それなら衝撃の事実を伝えるとするか」
-
-　いかにも気が進まないといったような顔で、芳野は俺たちに結論を告げた。
+`  "Alrighty, then.@ The untoward truth of our present circumstance it is."@
+;breaks at this line
+`  Yoshino looked disappointed, but he obliged and gave us the short version.@
 bgm "bgm/15.mid"
 ld c,yosino2,10
-「ここは未来の世界。２５０年後の日本だ」\
+`  "This isn't the world you know. We're 250 years in the future."\
+
 cl a,10
-　西暦２２６５年の中京――@かつて名古屋と呼ばれた都市。
-　芳野の話を信じるなら、俺たちがいる場所はそこだった。
-　呆然とする俺たちに芳野は長い話を語り聞かせてくれた。
-　――それは俺たちのもといた時代から「この時代_」に至るまでの物語だった。\
-　アメリカの主導する平和に守られた２１世紀の終わりに、日本の首都は東京から名古屋に移った。
-　俺たちが生きていたのは、その移り変わりの始まりだったと公子先生が語ってくれた。
-　企業は開発し尽くされた東京から離れ、多くの土地と交通の利点をもつ名古屋へと移っていった。
-　中京という新しい名前が与えられて首都となってからも発展は続き、ここを中心として重軽の工業が盛り返しを見せ、日本の経済は再び世界を席巻した。
-　――そして混乱の２２世紀を迎えた。\
-　混乱の原因は石油が枯渇したことだった。
-　１００年以上の年月をかけて世界中が頭を悩ませてきた「石油に代わるエネルギー源_」はついに見つからなかった。天然ガスにも原子力にもそれだけの器量はなかった。
-　当たり前だよな、原子力発電所を建設するのにどれだけの石油がいると思う、と芳野が言った。
-　その混乱はしかし、長らく辛酸をなめ続けた第三世界を活気づけた。
-　アメリカの主導力は急速に衰え、敗れたことのない「大きな子供の国_」は、だだをこねるように戦争を引き起こし、それは第三次世界大戦と呼ばれる事態にまでなった。\
-　アメリカは全世界を相手に戦った。
-　当初は圧倒的優勢にあった世界最強の軍隊は、泥沼と化した戦場のそこかしこで敗れるようになった。
-　その戦争のおかげで本当に一滴も石油がなくなったのだ。
-　戦闘機も戦車も動かない状況は、近代的な戦争を許さなかった。
-　ベトナムの悪夢が蘇り、理性を失ったアメリカは核のボタンを押した。
-　繰り返し押した。\
-　だが核を保有する国はもはやアメリカだけではなかった。
-　今日はここ、次の日はここというように巨大な都市が次々と灰になり、気がついたときには世界の半分が死の平野になっていた。
-　その核も撃ち尽くされて、戦争に疲れきった国々でさらに内戦が起こり、自然消滅のかたちで大戦が終わって２３世紀がきた。\
+`  If Yoshino could be believed, the year was 2265.@
+`  And the place, Chukyo - the center of what used to be Nagoya.@
+`  We were dumbstruck. Taking advantage, Yoshino braved on, filling in the details.@
+`  He told us everything that had happened...@ How our world - the old world - became the one we awoke to.\
+
+`  At the end of the 21st century, a time of peace led by the United States' global influence, Japan relocated its capital from Tokyo to Nagoya.@
+`  Ms. Kouko added that the time we came from was just as that shift was beginning.@
+`  Tokyo had grown stagnant economically, so Japan's industries shifted their focus to Nagoya, as a convenient transportation hub with ample land for development.@
+`  The newly christened capital of Chukyo grew in leaps and bounds,@ and the many industrial advances that resulted lifted Japan to once again reign ascendant as the leading global economic superpower.@
+`  ...But then came the turbulent events of the 22nd century.\
+
+
+`  It all began when the fossil fuels ran dry.@
+`  For over a hundred years, the world order searched, fumbling, for an energy source to replace oil.@ Neither natural gas nor nuclear power proved enough to bridge the gap.@
+`  "No way nuclear could catch up at that point.@ Gotta build the plants first, and that just means more petroleum up front," added Yoshino.@
+`  Inexorably, the shortages led us to a third world war.@
+`  The world's faith in the leadership of the United States vanished swiftly as it began to move in aggression.@ To protect their privileged way of life, the land of excess provoked multiple conflicts that would grow to embroil the globe.\
+
+`  The land of freedom itself stood against the entire free world.@
+`  Though they claimed many early victories, even the invincible might of the world's greatest military, quagmired on multiple fronts, was eventually exhausted.@
+`  All that the world-engrossing conflict had truly accomplished was draining the final reserves of precious fuel.@
+`  With the engines of war paralyzed, the era of modern warfare ground to a halt.\
+`  Confronted with the national nightmare of a new global Vietnam, America leapt to the option of absolute last resort.@ The big, red button.@
+;breaks at this line
+`  The bombs dropped again.@ And then again.@ And again.\
+
+`  But of course, the United States was no longer alone in their mastery of the atom...@
+`  And so, one by one, day to day, the great cities of the world turned to ash.@ Too quickly for cooler heads to prevail, the greater half of the world was reduced to charnel fields.@
+`  And when the ash had settled, the survivors set about warring amonst themselves.@ The conflicts only came to end once the world's natural resources were all but exhausted.@
+`And thus, in an age of devastation, did we ring in the 23rd century.\
+
 cl a,10
-bg "bg/ac2000japan.jpg",10
-　日本は戦争の２２世紀をどうにかやり過ごした。
-　アメリカの再三の警告にもかかわらず中立を保ち、ひたすら自衛のために軍隊を使った。
-　もちろん戦渦はまぬがれられず中京も東京もがれきの山になったが、最初の被爆国であるこの国に新しい核が投下されることはなかった。
-　どこの国にも他にもっと核を叩きこみたい相手がいたからだ。
-　しかし石油の枯渇は工業における日本のイニシアチブを失わせた。
-　と言うよりも――@工業そのものが小さくなってしまったのだ、と公子先生は言った。\
-　２３世紀に入り、内戦はくすぶっていたけれども国家間の争いはなくなった。
-　そして人類は深い虚脱感におそわれた。
-　原因は１００年にわたる戦争ではなく、これまで延々と進化してきた文明を退行させなければならないことだった。
-　簡単に言えば、今さら誰も蒸気機関車なんて作りたくないんだよ、と芳野が言った。
-　空白の５０年が過ぎ、人間はいまだ新たな熱源をえられないでいる。\
+bg "bg\ac2000japan.jpg",10
+`  As for how Japan fared...@
+`  Despite America's repeated demands, it struck a neutral stance, deploying its armed forces only in self-defence.@
+`  Of course, we were far from unscathed, with both Chukyo and Tokyo mostly reduced to ruins.@ However, the country that suffered the first atom bomb was at least spared a repeat performance of that disaster.@
+`  Every other country simply found they had more deserving targets.@
+`  However, with the end of oil, Japan had lost its economic initiative.@
+`  "More accurately, none of our industries could sustain themselves any longer," clarified Ms. Kouko.\
+
+`  At the dawn of the century, though civil conflicts still smouldered, wars between national powers had settled.@
+`  Humanity had fallen into a deep despondency.@
+`  The cause of our new malaise was not a hundred years of war, but witnessing the regression of our once-advanced culture.@
+` "Put it another way," interjected Yoshino,@ "no one wanted to go back to steam engines."@
+`  But 50 years on, humanity was still searching for a new energy source.\
+
 bg balack_2,10
 ld c,yosino2,6
-　――西暦２２６５年の中京。
-　芳野たちの話を信じるなら、俺たちがいる場所はそこだった。\
-「もう一回だけ確認させてもらえば……俺たちはつまり」
-ld c,yosino3,10
-「デロリアンにも乗らずにタイムスリップしちまった、とそういうわけさ」
+`  And now, as unbelievable as it was...@
+`  Here we were, apparently. Chukyo, in the year 2265 A.D.\
 
-　頭の後ろに手を組んで芳野がそう言い、大きく一つあくびをした。\
+`  "So let me get this straight, we were, somehow, what..."@
+ld c,yosino3,10
+`  "Zapped to the future? Bingo. And we didn't even need a DeLorean."@
+
+`  Yoshino leaned back, folding his hands behind his head, and yawned deeply.\
+
 cl a,10
-　外はもう夜だった。
+`  By now, it was dark outside.@
 ld r,fuko1,6
-　芳野と公子先生が話している間に風子が作ってくれた夕食がテーブルの上に並べられた。
+`  Dinner was resting on the table - Fuko had prepared it for us as Yoshino and Ms. Kouko were talking.@
 ld r,fuko5,10
-　肉と野菜の浮かぶミネストローネのようなスープはなかなか美味しく、正直にそう言うと風子は赤くなって下を向いた。\
+`  She had made a meat and vegetable soup, something like a minestrone.@ It was pretty good, but when I mentioned that, Fuko just blushed and looked down.\
+
 ld r,fuko1,10
 ld l,kouko1,6
-「私たちはここに来てもう２年になるの」
-
-　パンをちぎりながら公子先生がそう言った。
-
-「でも俺は、昨日に先生と話したのを覚えてる」
+`  "It's been at least two years for us, now."@
+`  Ms. Kouko elaborated, tearing off a piece of bread.@
+`  "But... I remember talking to you just yesterday."@
 ld l,kouko11,10
-　俺がそう言うと、先生は少しだけ寂しそうに微笑んで見せた。\
-「ええ、私も覚えているわ。――タイムラグがあったのね、きっと。タイムスリップ自体おかしなことだから、そんなことが起きても不思議はないのかも。
-　でも信じられない話。私たちはもう慣れちゃったけど、あなたたちがまだ受け容れられないのも分かるよ。……ずっとそうだったから」
+`  She smiled faintly, looking slightly distant, before she replied.\
+
+`  "That's right... I remember it, too.@ It's likely a time-lag effect. It's strange, I know... But so is time travel.@ It's not surprising that we'd experience side effects."@
+`  "I understand if you're confused. Reconciling your memory with the present can be... challenging.@ We've managed to come to grips with it, but it takes time... we know."@
 ld r,fuko1,10
-　そう言って風子の方を見た。
+`  She glanced in Fuko's direction.@
 ld r,fuko3,10
-　風子はもう大丈夫だというように頷いた。
-　言われてみれば風子は俺の知っている彼女とは違う少しだけ大人びた身体と仕草を携えていた。\
-「それからお兄ちゃ――@芳野さんと一緒に暮らしてきたんです。
-　何もかも違うことだらけで、お姉ちゃんと二人だけだったらどうなっていたか分かりません」
+`  Fuko returned her look with a nod, signaling that she was all right.@
+`  Come to think of it, Fuko struck me as different than I remembered.@ She looked a little more mature, both in her appearance and her mannerisms.\
+
+`  "Since we woke up, we've been living here with Onii...@ I mean, with Yoshino."@
+`  "Everything's so different, now... it's been hard.@ If it was just me and Kouko, I don't know what we would've done."@
 cl a,6
 ld c,yosino2,6
-「なに、俺なんかいなくても立派にやっていたさ。助けられているのは、むしろ俺の方だ」
-　芳野はそっけなくそう言って俺たちに向きなおった。
-「さて、質問があれば受け付けるけど？」\
-「この時代のこの国のことをもっとよく知りたい」
+`  "Nah, you'd've done just fine.@ If anything, I'd say I'm the one who owes you."@
+`  Yoshino spoke frankly to her, before turning back to us.@
+`  "Anyway... Any questions? Now's the time."\
 
-　これまで押し黙っていたことみが切り返した。
-
-「いいよ。何でも聞いてくれ」
-「この国の産業は今、どうなっているんですか？」
+`  "I want to know more about Japan... This Japan."@
+`  Kotomi had been quiet until now, but she spoke quickly as she interjected.@
+`  "Sure, lay it on me."@
+`  "Do we still make... well, anything?"@
 ld c,yosino3,10
-　そのことみの質問は俺には予想外のものだった。
-　……もっと他に聞くべきことがあるだろう。
+`  Well, that was unexpected.@
+`  I'd assumed Kotomi would have other, more pressing matters on her mind...@
 ld c,yosino7,10
-　だが、芳野はその質問を聞いてにやりと笑って見せた。\
-「精密機械工業が軸になっているな。
-　戦争のあいだ工業はほとんど発達しなかったが、２１世紀に精密機械はかなり進歩したんだ。
-　石油はなくなっても電力はあるから、小さいものなら作れるのさ。
-　そのうちまた話すけど、俺は今それで飯を食っている。何のことはない、こっちでも電気屋の兄ちゃんやってるんだよ」\
-　そう語る芳野を風子は誇らしげに見つめていた。
-　三人が一緒に暮らしてきたのなら、彼の稼ぎは二人を食わせるものでもあったのだろう。
-　だが公子先生は申し訳なさそうに、暗い視線をテーブルに落としていた。
+`  But Yoshino took the question in stride with a welcoming grin.\
 
-「じゃあ、この国の文化は？」
+`  "Oh, sure. Mostly precision parts."@
+`  "The war didn't do us any favors, but up until then we made some real breakthroughs in manufacturing."@
+`  "We can still manage electricity now, so we can do some small-scale stuff, even without oil."@
+`  "I can give you the full rundown later, but that's what I do for work these days.@ Funny, here we are, and I'm still the good ol' 'Onii-chan from the electrical company.'@ Ain't that right?"\
+
+`  Yoshino turned a smug expression on Fuko as he spoke, looking pleased with himself.@
+`  Maybe he was just proud of putting food on the table for the three of them?@
+`  However, Ms. Kouko was looking down at the table with a sorrowful stare.@
+
+`  "Then... What about the arts?"
 ld c,yosino3,10
-「文化？」\
-　ことみの二つめの質問に、芳野の右眉がぴくりと動いた。
+`  "...Arts?"\
 
-「そう文化です。文学とか、音楽とか」
+`  As Kotomi ventured her next question, Yoshino's right shoulder gave a twitch at the word.@
+`  "You know, art, writing, music. Culture."@
 ld c,yosino7,10
-「フ」
+`  "...Heh."@
 stop
-　芳野の右眉がまたぴくりと動いた。
+`  Yoshino's shoulder jerked again.@
 ld l,kouko9,10
 ld r,fuko2,10
 
-　公子先生と風子が「あ_」という顔をして芳野を見た。\
-「フ・フ・フ」
+`  With expressions that seemed to say, "uh-oh," Ms. Kouko and Fuko both turned to watch him.\
+
+`  "Heh, heh, heh..."@
 cl a,10
 bgm "bgm/524.mid"
-　その瞬間。どこからか軽快な音楽が鳴り響いた。本当に鳴り響いたのだ。
+`  Just then, I could've sworn I heard a lively swell of music.@ No, really. It was clear as day.@
 ld c,yosino8,10
-「よくぞ聞いてくれた」
-　それは誰でも知っている御機嫌なギターのイントロ――@ジョニー・Ｂ・グッドだった。\
-　芳野はかっ、と目を見開いて口火を切った。
-「文化――@そう文化！　この国ではもはや多くの文化は死んだ！　
-　小説も漫画もあるが誰も読まない！
-　だが音楽！　ロックンロールはこの死にかけた町に大きく花開いたのだ！」\
-　俺は唖然として芳野を眺めた。まるで人が違ったようだ。
-　幻聴ではない証拠に、ことみも智代も同じような表情で彼を眺めている。
-　第一にこの音楽は何だ？　どこから聞こえてくる？
-　公子先生と風子はわけ知り顔で、特に驚いた様子はない。
-　ＢＧＭは主旋律に入り、芳野の演説はさらに加速した。\
+`  "Yes, THAT is the question!"
+`  There was no mistaking those licks.@ Johnny B. Goode was playing!\
+
+`  Yoshino's eyes were wide and gleaming as he began to speak with a sudden fervor.@
+`  "Yes, indeed! Where HAS the great culture of the world gone?!@"
+`  "No one even cares for novels or manga anymore!"@
+`  "But, oh! The music!@ Through the fire and flames, the soul of rock and roll burned ever brighter!"\
+
+`  I couldn't do anything but listen, dumbstruck.@ It was like Yoshino was possessed.@
+`  At least I knew I wasn't imagining it, because Kotomi and Tomoyo where just as agog as I was.@
+`  And seriously, what was with this music? Where was it coming from?@
+`  Fuko and Ms. Kouko didn't seem surprised. Was this normal for them?@
+`  As the music hit its stride, Yoshino's sermon reached a fever pitch.\
+
 ld c,yosino4,10
-「君たちは知っているか？　ロックンロールが荒廃した町角に生まれたことを！
-　そう、この町のような吹きだまりに命を受けたことを！
-　どんな人間もロックンロールの前には平等だ、金持ちも貧乏人もない！　
-　熱いソウルを感じられるかどうか、それだけだ！　それだけが全てだ！　
-　この死にかけた町では今、ロックンロールが全てだ！　
-　そうさこの町こそ俺がずっと求めてやまなかった心の――」\
-「祐介さん」
+`  "You know where rock and roll was born?@ Some lonesome corner, in some nowhere town!@
+`  That's right, somewhere just like this! It was no-goods, burn-outs, and drop-outs that gave the world rock!@
+`  Forget about rich man, poor man! Rock and roll is the great equalizer!!@
+`  All you need is SOUL, baby, soul!@ That's the ONLY thing, and the EVERYTHING!!@
+`  We're just barely alive here, now, but as long as we've got rock, we're LIVING!!@
+`  It's everything I ever dreamed of!@ Right here, right now, the realest, rawest heart of-"\
+
+`  "Yoshino."@
 stop
 ld c,yosino10,10
-　……キュイーンという音がしてサビを目前にＢＧＭが止んだ。
-　公子先生の呼びかけに「はい_」と返事をして、憑き物が落ちたように芳野は大人しくなった。\
+`  ...Just as the music was about to peak, it stopped, leaving the echo of one last squealing chord.@
+`  Yoshino stiffened and meekly answered, "Yes'm," coming to his senses immediately.\
+
 ld c,yosino1,10
-「と……まあ、そんなところだ。ああ、喋ったら疲れたな。
+`  "Well, anyway... you get the idea, right?@ Phew, I wore myself out there."@
 bgm "bgm/15.mid"
-　おお、もうこんな時間になっちまった。まだ聞きたいことはあるだろうけど明日にしよう。うん、そうしよう」
+`  "Looks like it's getting pretty late, anyway.@ I'm guessing you still have more you want to know, but let's pick this up tomorrow. All right? All right."@
 cl c,10
 ld r,kotomi1,10
-「その指輪で離れたところにあるギターを弾くような技術が、この時代にはあるということですね」\
+`  "Seeing as you brought up music, I can see we've developed fancy rings that can play guitars remotely, now."\
+
 ld l,yosino3,10
-　ことみの指摘に芳野は目を丸くした。
-　風子や公子先生さえも目を丸くした。
-　俺には最初、ことみが何を言っているのか理解できなかった。\
-「よく分かったな。その通りだ。こういう技術が、今の時代にはある」
+`  Yoshino's eyes opened wide at Kotomi's observation.@
+`  As did Fuko and Ms. Kouko's.@
+`  I didn't understand what she was talking about, though, at least at first.\
+
+`  "Sharp eyes, there!@ Right you are, we can even do that, now."@
 cl a,10
-　そう言って両手を広げて見せた。
-　全ての指に銀色に光る指輪がはめられていた。
-　……俺はそんな指輪がはめられていたことさえ気づかなかったのに。\
+`  He held up his hands, spreading his fingers for us to see.@
+`  Each finger sported a shiny silver ring.@
+`  I hadn't noticed them at all...\
+
 ld l,yosino2,6
-「まあ、そのうちゆっくり話すさ。
-　さっきも言ったようにもう遅い。今夜はそろそろ寝よう」
+`  "Well, like I said, that can wait.@
+`  We'll tell you more tomorrow, but for now, I think it's time we hit the sack."@
 ld r,kouko1,6
-「一ノ瀬さんと坂上さんは、私たちの家に来る？」
+`  "Kotomi, Tomoyo, would you like to sleep at our house?"
 
-　どうやら姉妹は芳野とは違うところに寝起きしているようだ。
-　だがそんな公子先生の誘いを、ことみは丁寧に退けた。\
-「いえ、もし許してもらえるならここで休みたいです」
+`  The way she said it, it sounded like Ms. Kouko and Fuko didn't live together with Yoshino.@
+`  Either way, Kotomi politely declined.\
 
-　二人はしばらく見つめあっていたが、公子先生が目を伏せて優しくその緊張を解いた。
+`  "Thank you, but if it's okay, I think I'd rather rest here."@
 
-「坂上さんは？」
-「私は、どこでもいいですけど」
-「それなら今日ここに来たばかりの三人でお休みなさい。$1君、二人のことお願いね」
-「え？　あ、はい」\
-　俺が間抜けな返事をすると、芳野がおどけた口調で抗議した。
+`  They locked eyes for a long moment, before Ms. Kouko eventually relented.@
+
+`  "How about you, Tomoyo?"@
+`  "Anywhere works for me."@
+`  "All right. Since you three just woke up today, why don't you stay here together tonight?@ Make sure to look out for them, $1."@
+`  "Huh? O-oh, sure."\
+
+`  I stuttered out a reply, caught off guard.@ Yoshino took advantage of my dork moment to chime in with a playful tone.@
 ld l,yosino3,10
-「おいおい、それじゃ俺はどこに寝ればいいんだ？　春とはいえ野宿にはちょっと寒いぞ」
+`  "Well, goodness, where shall I lay my head, then?@ It's still a little cold to be roughing it."@
 cl r,6
 ld r,fuko8,6
-「じゃあ、お兄ちゃんがわたしたちのところに来ればいいよ」
+`  "You can stay with us, Onii-chan."@
 ld l,yosino3,10
-　風子がそう言うと、芳野は「え？_」と呟いて固まった。\
-「そうしましょう。祐介さん、狭い家ですけど」
+`  At Fuko's invitation, Yoshino froze, choking out a "buh?"\
+
+`  "Good idea. There's not much room, but you're welcome."@
 ld l,yosino10,10
-「いや、それはちょっと問題があるんじゃ……」
-「あら、どんな問題があるのかしら？」
-　公子先生は明らかに狼狽する芳野を不思議そうに見つめていた。
-　風子は片づけてくると言ってもう外に出ている。\
+`  "Hey, c'mon. That's, y'know...@ Kind of weird, right?"@
+`  "Why would it be?"@
+`  Ms. Kouko fixed a flustered Yoshino with a perplexed look.@ 
+`  Fuko had already left, saying she would clear some space for him.\
+
 cl a,10
 stop
 bg "bg\inbalack_yoru.jpg",6
-　――分からないことだらけの一日だった。
-　けれどもその一日の終わりに、俺たちよりも二年はやくこの町に来ていた三人の関係だけは、何となく分かった気がした。\
-bgm "bgm/30.mid"
-　芳野たちが出ていってしまうと、部屋には奇妙なとりあわせと言ってもいい三人が残された。
-　床には体育用マットのように厚くて長い一枚の寝具――@俺たちのために特別に用意されたものだろう――@が敷かれていて、今夜は三人でそこに雑魚寝をすることになる。\
-　智代はまだ俺たちの学校に編入してきて間もなかったし、ことみは他人のことにあまり興味を示すタイプではないから予想はしていたのだが、二人はほとんど初対面であるようだった。
-　自然と俺を真ん中にして右にことみが、左に智代が同じように膝を抱えて座っている。\
-　天井から下がる裸電球のような照明がくたびれた光を放っている。
-　その明かりを調節するためには指のスナップ音を聞かせたあとに０から１０の数字を告げればいいのだという。\
-「なあ、どうして公子先生のところへ行かなかったんだ？」
-ld c,kotomi4,6
-　俺がそう質問すると、ことみはこちらに視線を向けずにぼんやりと答えた。
+`  After all that... I was still feeling lost.@
+`  But if nothing else, at least I felt like I was getting a clearer picture of Yoshino, Fuko, and Ms. Kouko's relationship.\
 
-「あの先生は優しいから」
-「……優しいから？」
-「今日は色々なことがあって、まだ考えの整理がついていないの」
+bgm "bgm/30.mid"
+`  They had left after that,leaving just the three of us in the room.@
+`  Some sort of long sleeping pad, kind of like a gym mat, had been laid on the floor.@ I supposed they had brought it here for us...@ And that we'd be sharing it tonight.\
+
+`  Tomoyo had just started at our school recently, and Kotomi didn't really talk to other people much, so they were practically strangers to me.@
+`  But, at some point Kotomi had settled on my right, with Tomoyo on my left,@ both of them sitting on the mat and hugging their knees.\
+
+`  Some sort of light fixture that looked like a naked bulb hung from the ceiling, casting a dim light.@
+`  Apparently, we could adjust the light by snapping our fingers and saying a number between 0 and 10.\
+
+`  "Hey... Why didn't you want to go stay with Ms. Kouko?"@
+ld c,kotomi4,6
+`  Kotomi mumbled a response without looking.@
+
+`  "She's too nice."@
+`  "Too nice...?"@
+`  "I... I'm still trying to process everything, I think I need a little time."
 ld c,kotomi2,10
-　心ここにあらずといった感じでことみはそう呟き、俺を見て曖昧に微笑んだ。\
-「ごめんね。今は一人で考えさせて」
-「つまり……話しかけるな、ということ？」
-「――ごめんなさい」
+`  She sounded as if her thoughts were far, far away.@ She looked at me with a strained smile.\
+
+`  "Sorry, but could I have some time to think?"@
+`  "Oh... As in, don't talk to you?"@
+`  "Sorry... Do you mind?"@
 cl a,6
-　俺は仕方なくことみとの会話を諦めた。
+`  I left her alone with her thoughts.@
 ld l,tomoyo1,6
-　その時、智代がすっと立ちあがって扉から外に出ようとした。\
-「どこに行くんだ？」
-「ちょっと外の空気が吸いたい」
-「おいおい危ないだろ。何がいるか分からないんだぞ」
-「大丈夫だよ。そんな遠くまで行かないし」
+`  But then, Tomoyo suddenly stood and headed for the door.\
+
+`  "Where are you going?"@
+`  "I just want to get some air."@
+`  "Hey, hold on. It might be dangerous!@ You don't know what's out there."@
+`  "It'll be fine. I'm not going far."@
 ld r,kotomi1,6
-　俺はことみを見た。行ってらっしゃい、という視線が返ってきた。
+`  I glanced at Kotomi.@ She gave me a dismissive look, suggesting she wouldn't mind if I went along.@
 cl l,6
-　智代はもう後ろ手に扉を閉めようとしていた。\
+`  Tomoyo was already closing the door behind her.\
+
 cl a,6
 stop
 bg "bg\machi_yoru2.jpg",6
 bgm "bgm/43.mid"
-　俺の同伴に智代は不平をしめさなかった。
-　初めて外から見れば俺たちが過ごしていたのは体の良いバラックで、周囲にはそんな押し潰されたような建物が軒を連ねていた。\
-　しばらく歩き続けて拓けた通りに出た。繁華街だった。
-　灯火の一本もない街路は、けれども夜らしい明かりに満たされていた。
-　中空に水の流れが見える大きな硝子玉のようなオブジェが広い道の中央に鎮座し、立体映像なのだろうか、その頂の夜空に銀色の時針が描きだされていた。
-　午前一時だった。だが人通りはまだ決して少なくはなかった。\
-「２５０年も経ってるのに、同じような服を着ているんだな」
+`  I slipped out after her. She didn't seem to mind my tagging along.@
+`  Seeing the ramshackle shelter from the outside, it actually looked pretty sturdy...@ Compared to the surroundings, which were more or less flattened.\
+
+`  We walked for a little while, until we reached a wider road. It looked like a market district.@
+`  There wasn't a single light to be seen, but there was a faint glow, just enough to dimly see by.@
+`  Something big and round, like an oversized glass bead, was stationed in a commanding position in the center of a wide crossroads.@ Above it, projected on the night sky like some kind of hologram, was a glowing silver clock-face.@
+`  It read 1 in the morning,@ but even at this hour, there were still people out and about.\
+
+`  "Two hundred and fifty years have gone by, but everyone still basically dresses the same, huh?"@
 ld c,tomoyo7,6
-　俺がそう感想を漏らすと、智代は「たしかにね_」と相槌をうった。
+`  I couldn't help but mention it.@ "Actually, yeah," Tomoyo was quick to reply.@
 
-　どういうわけか人々の服装は２１世紀はじめのそれに近く、制服を着たままの俺たちがじろじろ眺められることもなかった。\
-「たしかにあんまり変わってない」
-　天気について語るように智代がそう呟いた。
+`  Everyone basically looked like they were right out of the 21st century.@ And even though we were wandering around in our school uniforms, no one gave us a second look.\
+
+`  "It basically feels the same, doesn't it?"@
+`  Tomoyo spoke as nonchalantly as if she was mentioning the weather.@
 ld c,tomoyo2,10
-「どんなに変わっているかと思ったのに、ちょっと残念」
-「何をのんきなことを……」
-　俺がそう言うと、智代は平然とした表情をこちらに向けた。
+`  "I thought it'd be like a whole new world. Oh, well."@
+`  "You're really taking this in stride..."@
+`  Tomoyo looked my way, her expression calm.@
 ld c,tomoyo7,10
-「すぐに帰れるとは限らないし、それならこの状況を楽しまないと」\
-「すぐにどころか、死ぬまで帰れないかも知れないっての」
-「悩んで向こうに帰れるならいくらでも悩むけどね。
-　どうやらそう簡単でもなさそうだし」
+`  "We don't know when we can go home, so we might as well make the best of it, right?"\
+
+`  "You say 'when,' but we might just be stuck here for good..."@
+`  "And if freaking out about it would get me out of here, believe me, I'd be freaking out...@
+`  But something tells me that won't do us much good."@
 ld c,tomoyo10,10
-　そう言って智代は楽しそうに笑って見せた。
-　俺には舌打ちしてそれをかわすことしかできなかった。
-　智代の言葉が強がりではないのをはっきりと感じたからだ。\
+`  Tomoyo smiled cheerfully.@
+`  I grumbled, unable to muster much of a response.@
+`  She wasn't just putting up a brave front, I could tell she really meant it.\
+
 ld c,tomoyo6,10
-「――ねえ、$1はさ」
-「呼び捨てにするなって言ったろ」
+`  "So, like, $1..."@
+`  "So, like, what?"@
 
-　そんな俺の文句を無視して智代は続けた。
-「$1はこの状況、わりと怖かったりする？」
-「……どうしてそんなこと聞くんだ」\
+`  She ignored that, pressing on.@
+`  "Doesn't this freak you out, us being here?"@
+`  "...Why do you ask?"\
+
 ld c,tomoyo7,10
-「私、何だか少しも怖くないんだ。
-　普通の人ならこういうとき怖くて泣いたり悩んだりするんだろうけど、自分でも不思議なほど何も怖くない。
-　知らないうちに遠い国に置き去りにされたような感じ」
-「ばか。遠い国に置き去りにされたら普通は怖がるだろ」
+`  "Because I'm not really worried about it. Not at all.@
+`  But that's weird, though, right?@ You'd think I'd be having a total breakdown right about now...@ But, I've got nothing.@
+`  It's like I've just been whisked away to fairy-tale land."@
+`  "Any reasonable person would probably freak out if they woke up in fairy-tale land, too."@
 ld c,tomoyo3,10
-「あ、そうか。そうだよね」\
-cl c,10
-　相変わらず淡々とした智代の言葉を聞きながら、ふと気づいた。
-　たしかに自分も思ったより不安を覚えていない。
-　こんな異常に巻きこまれながらそれほど悲観していない。
-　明日になればうららかな春の陽の下に、この町の様子をもの珍しく見てまわりかねない。\
-「でもまあ、言われてみればそうだな。俺もわりと気楽かも」
-ld c,tomoyo7,10
-「本当にそう？」
-「何か、少しだけ明日が楽しみだ」
-「私もそう。
-　でも――@悪いことじゃないよね、それって」
-ld c,tomoyo2,10
-　智代はそう言って、今度はいつになく不安そうな瞳で俺を見た。\
-　ああ、ばかだこいつ。
-　思わず息だけで笑いながら「悪いことじゃない」と返した。
+`  "Oh, yeah. Right, probably."\
 
-「……どうして笑うのよ」
 cl c,10
-　それでも俺が笑い続けていると、智代はつまらなそうに視線をそらした。\
+`  As Tomoyo once again flatly replied, something occured to me.@
+`  I wasn't all that bothered, either, when I thought about it.@
+`  My world had been turned upside-down, but I felt strangely unconcerned.@
+`  The only thing on my mind was wandering around tomorrow, taking in the sights under the warm, spring sunshine.\
+
+`  "Now that you mention it, you might be right.@ I might be okay."@
+ld c,tomoyo7,10
+`  "Oh, really?"@
+`  "It makes me wonder, what'll happen tomorrow?@ I'm actually a little excited to find out."@
+`  "Yeah, me too.@
+`  When you look at it like that...@ It might not be all bad. Right?"@
 ld c,tomoyo2,10
-　――そこで智代の足が止まった。小さく口を開いたまま虚空を見あげ、右手の人差し指でその視線の先を指した。
-　俺は笑いながらそちらを見て、すぐにその表情を消した。\
+`  Tomoyo looked my way as she spoke.@ But this time, something in her expression seemed unsettled.\
+
+`  Great, she's losing it after all.@
+`  I chuckled under my breath. "Yeah, not so bad."@
+
+`  "What's so funny?"@
+cl c,10
+`  I just kept laughing. Tomoyo wrinkled her face and looked away.\
+
+ld c,tomoyo2,10
+`  And then, Tomoyo stopped.@ Her mouth hung slightly open as she looked skywards, then simply raised her right hand and pointed.@
+`  Still grinning, I looked up.@ My face fell slack at what I saw.\
+
 stop
 bg #000000,10
 bg "bg\tower_yoru.jpg",8
 bgm "bgm/37.mid"
-　あまりにも巨大な漆黒の塔が、まるで天上への階段のようにそびえていた。
-　そのすそは視界の半分に広がり、上へのぼるほどに一段また一段と狭まってゆく。
-　明かり一つない表面は黒曜石のような光沢を放ち、その先端は夜空に溶けて見えない。\
-　――どこかで聞いたことがある。天空を目指して築かれた塔。
-　神の怒りにふれて破壊された塔。
-　目の前に君臨するものがそれだと、疑いもなくそう信じた。\
-「――もう帰ろう」
+`  An enormous, dark, black spire stretched far, far into the sky.@
+`  The base of the tower stood wide across the horizon, and grew narrower in tiers as it climbed.@
+`  The structure didn't have a single light, but its obsidian lustre caught the twilight ever so slightly, until its shape melted into the night sky.\
 
-　塔を見あげたままの智代が、独り言のように囁いた。\
+`  Once, I'd heard a story about how mankind tried to built a tower all the way to heaven...@
+`  But this angered God, and the tower was struck down.@
+`  But in that moment, with the enormous spire filling my view, I could have believed that this was that very tower.\
+
+`  "...I think I'm ready for bed now."@
+
+`  Gazing up at the spire, Tomoyo murmured in hushed tones, as if speaking to herself.\
+
 stop
 bg #000000,6
 bg "bg\inbalack_yoru.jpg",6
 bgm "bgm/30.mid"
 ld c,kotomi1,6
-　バラックに帰り着くとことみはまだ起きていた。
+`  Kotomi was still awake when we returned to the shack.@
 cl c,6
-　智代は靴を脱ぐなりタオルケットにくるまり、疲れたと言って早々に寝に入った。
-　五分も経たないうちに寝息が聞こえ始めた。
-　俺は複雑な感情を深い溜息に託した。\
-「町はどうだった？」
+`  Tomoyo simply said "good night," quickly wrapped herself in a cotton blanket, and curled up to sleep.@
+`  From lie-down to dreamland, she was out in just a few minutes.@
+`  I refrained from commenting, and simply breathed all my misgivings into a deep sigh.\
 
-　こちらに視線を向けずにことみがそう尋ねた。
+`  "What was it like outside?"@
 
-「思ったほどでもなかった」
-「私たちの町と似ていたということね」
-「ああ。もちろん違いはあったけど」
-「それほど目にはつかなかった」\
-「そんなところだ。予想通りだった？」
-「もう新しいものはあまり必要なかったから。あの私たちの時代でさえ。
-　きっと目に見えるもので、それほどの変化はないと思ってた」
+`  Kotomi spoke up, glancing my way.@
 
-　ことみはそう言ってこちらに顔を向けた。
+`  "Not as weird as I thought it'd be."@
+`  "So, it looked like home?"@
+`  "Yeah. There were a few things, but mostly."@
+`  "Nothing that really said, 'future,' then?"\
 
-「でも何かあったんじゃない？　
-　私たちの時代には想像もできなかったような何かが」\
-「……たしかにあった」
-「何があったの？」
-「歴史の授業で聞いたと思ったんだが、大昔に建てられた塔。神の怒りにふれて壊されたやつ」
-「バベルの塔？」
-「それ。そんな感じの塔が町の真ん中に建ってた」
-「そう……そうなんだ」
-　そう言いながらことみは前に向きなおり、それから一言も喋らなかった。\
+`  "Pretty much... Did you think it'd be different?"@
+`  "We didn't really need to innovate or change much, even in our time."@
+`  So I didn't think there'd be any big, obvious, sweeping changes."@
+
+`  Kotomi turned to face me fully.@
+
+`  "But you said mostly, right?@
+`  So you did see something that definitely wasn't from our time?"\
+
+`  "...Yeah. We did."@
+`  "Like what?"@
+`  "I think I heard about it in history class, but do you remember the story about the giant tower they built long ago?@ The one that made God so angry, he destroyed it?"@
+`  "The Tower of Babel?"@
+`  "Yeah, exactly. There's something just like that, right in the middle of the city."@
+`  "Oh... Wow."@
+`  Kotomi went back to staring straight ahead, and went quiet.\
+
 bg #000000,10
 stop
-　真夜中。暗闇に目を覚ました。
-　ことみの寝ている方からすすり泣く声が聞こえた。
-　押し殺したような哀しい声。\
-　慰めようとして――@その方法が見つからなかった。
-　俺はこの町に来て初めて親父のことを考えた。
-　暗い家の扉を開け、一人で夕飯を食べ、布団を敷いて寝る親父の姿を思い浮かべた。
-　けれども俺は涙を流すほどに、それを哀しく思うことはできなかった。\
-　――せめてことみが泣きやむまで眠らずにいようと思った。
-　暗闇に目を開けて親父のことを考え続け、やがて静かな寝息が耳に届いてから、目を閉じた。\
+`  In the middle of the night, I opened my eyes to darkness.@
+`  I could hear faint sobs from Kotomi's direction.@
+`  It sounded as if she was doing her best to keep them in.\
+
+`  I thought about trying to do something...@ But I couldn't imagine anything that would help.@
+`  I thought back to my dad, for the first time since I woke up.@
+`  I pictured him coming home to an empty house, eating alone at the table, laying out the futon for bed...@
+`  But I just couldn't work up the feelings to cry over the thought.\
+
+`  Even so... At least until Kotomi stopped crying, I decided I'd stay awake.@
+`  I laid in the dark, thinking about my dad...@ Until I heard her breathing softly, asleep, and then finally closed my eyes.\
 delay 2000
 
 
@@ -1076,7 +1150,7 @@ delay 2000
 ;-----------------------------------
 
 textoff
-lsp 10,":l;daynumber\bara2.jpg",150,170
+lsp 10,":l;EN\daynumber\bara2.jpg",150,170
 print 10
 delay 2000
 csp -1
@@ -1618,7 +1692,7 @@ wave "wave/dooropen.wav"
 wave "wave/kaidan.wav"
 　息を切らせて階段をのぼりきり、扉を開けて外に出た。
 bgm "bgm/43.mid"
-bg "bg/yakei.jpg",10
+bg "bg\yakei.jpg",10
 　暖かい風が吹き抜ける――@そこはビルの屋上だった。
 　空はゆっくりと藍色に染まり、幾つかの星を数えることができた。
 　眼下には町の灯が見えた。スメールの根本、色とりどりの光がひしめくように大地に広がっていた。
@@ -1850,7 +1924,7 @@ delay 2000
 ;-----------------------------------
 *bara3
 textoff
-lsp 10,":l;daynumber\bara3.jpg",150,170
+lsp 10,":l;EN\daynumber\bara3.jpg",150,170
 print 10
 delay 1000
 csp -1
@@ -2267,7 +2341,7 @@ stop
 ;----------------------------バーふじこへ入店
 bgm "bgm\aishuu.mid"
 bg #000000,6
-bg "bg/fujiko.jpg",6
+bg "bg\fujiko.jpg",6
 ld c,fujiko2,6
 「いらっしゃい。あら祐介ちゃん、お客様？」
 　店に入ると深紅のドレスを着た女性が出迎えてくれた。目の覚めるような美人だった。腰までの黒髪が水に濡れたように輝いている。
@@ -2325,7 +2399,7 @@ cl a,6
 　そのたびに俺たちはでっち上げの経歴を語らねばならなかったから、満席になるころにはすっかりそれが本当のことであると自分でも信じるようになってしまっていた。\
 　演奏が始まる前から、そこかしこで乾杯の声が響いた。たちまち店内は賑やかな活気に満ちあふれる。
 　――どこかで見たことがある光景だと思った。テレビで見たことがある外国の酒場の光景。誰もが陽気に声をかけあい、杯を交わしあう。そんなルールで一体になった空間が、俺の目の前に広がっていた。\
-bg "bg/rockband.jpg",6
+bg "bg\rockband.jpg",6
 　不意に拍手が起こりそちらの方向を見ると、３人の男たちが楽器を携えて座っていた。
 　アコースティックギターを抱える芳野と、ドラムセットに向かうルドルフと、サックスを構えるジェイと呼ばれた黒人。
 　一瞬の静寂があって、『マイスター・シンガー』の演奏が始まった。\
@@ -2430,7 +2504,7 @@ bg #000000,10
 ;-----------------------------------
 
 textoff
-lsp 10,":l;daynumber\bara4.jpg",150,170
+lsp 10,":l;EN\daynumber\bara4.jpg",150,170
 print 10
 delay 1000
 csp-1
@@ -2853,7 +2927,7 @@ bg #000000,14
 ;ジッグラト２日目
 stop
 textoff
-lsp 10,":l;daynumber\zig2.jpg",150,170
+lsp 10,":l;EN\daynumber\zig2.jpg",150,170
 print 10
 delay 1000
 csp-1
@@ -3545,14 +3619,14 @@ delay 1000
 
 ;ジッグラト３日目
 textoff
-lsp 10,":l;daynumber\zig3.jpg",150,170
+lsp 10,":l;EN\daynumber\zig3.jpg",150,170
 print 10
 delay 1000
 csp-1
 bg #000000,10
 delay 1000
 ;--------------------夢の中
-bg "bg/kasen.jpg",17
+bg "bg\kasen.jpg",17
 ld c,akio50,6
 　夢を見ていた。夢の中で俺は秋生さんとキャッチボールをしていた。あの町の河川敷の広場。どこまでも青い空の下で土汚れた白球を投げ、返球をミットに受け、また投げ返した。
 cl a,6
@@ -3565,7 +3639,7 @@ ld c,akio50,6
 　川の流れは止まっていた。草の葉を揺らす風もなかった。\
 　秋生さんが腕を振りながら俺に何か言った。口が動くだけで何も聞こえなかった。大きく振りかぶって、投げた。球は俺の頭上を越え、草むらの中に沈んでしまった。
 bg #000000,6
-bg "bg/kasen.jpg",6
+bg "bg\kasen.jpg",6
 　すぐに探し始めたが、球はなかなか見つからなかった。丈の高い草をかき分け、ようやくそれらしいものを発見した。それは白球ではなかった。木を彫って作った星だった。
 bg "bg\kasen_yoru.jpg",8
 　空を見あげると夜だった。疎らな屑星の間に三日月が笑っていた。
@@ -4000,7 +4074,7 @@ bg #000000,10
 　――智代は追いつめられている。この町のどこにも居場所がなく、こんなところで食事もとらずに壊れかけている。俺にはそれをどうすることもできない。この二本の腕は、智代を守るために何もできない。
 　……何が約束だ。笑わせる。
 　俺はまったく口先だけのばかだ。\
-bg "bg/okujou3.jpg",10
+bg "bg\okujou3.jpg",10
 　智代が泣きやんでから、俺たちは並んで前を向いて座り、ただ黙って景色を眺めた。
 　ときどき隣から智代が鼻をすする音が聞こえた。
 　ごくまばらに桜の花びらが舞っていた。
@@ -4422,7 +4496,7 @@ stop
 *tabidachi
 ;ジッグラト４日目
 textoff
-lsp 10,":l;daynumber\zig4.jpg",150,170
+lsp 10,":l;EN\daynumber\zig4.jpg",150,170
 print 10
 delay 1000
 csp-1
@@ -4499,23 +4573,23 @@ cl a,10
 　はっきりと理解した。俺たちはスメールのシステムを落とすことに成功した。\
 　恐慌が起こった。色彩の失われた町に人々は混乱を極め、闇雲に動いて衝突し諍い合った。
 bg #000000,4
-bg "bg/station3.jpg",4
+bg "bg\station3.jpg",4
 ld c,tomoyo9,6
 　歩道橋の階段の下に手を振る影があった。智代だった。
 　俺の視線に気づくと、彼女は腕を伸ばし一方を指さした。空間のぐるりを取り巻く壁がその先に見えた。\
-bg "bg/station4.jpg",20
+bg "bg\station4.jpg",20
 　俺たちは群衆の間を縫って走った。逃げ惑う者、泣き叫ぶ者、他人を傷つける者。うずくまる者、身を隠す者、憑かれたように笑う者。
 　悲鳴があがった。片腕を失った男が血まみれで地面をのたうっていた。警官風の男が小さなメガホンのようなものを手にしきりに何かを叫んでいた。
 
 　一人の女が警官に走り寄った。警官はメガホンを女に向けて構えた。
 wave "wave/laser.wav"
 bg #FA1A07,1
-bg "bg/station4.jpg",10
+bg "bg\station4.jpg",10
 　女の頭が吹き飛び、首から噴水のように血柱があがった。
 「きついのが出てきやがった……」
 bg #000000,6
 　呟きは喧噪に消えた。壁まであと少しだった。
-bg "bg/station7.jpg",20
+bg "bg\station7.jpg",20
 ld c,tomoyo14,6
 　そのときビルの路地から２人組の警官が躍り出た。\
 　――まずい。
@@ -4526,7 +4600,7 @@ wave "wave\dageki.wav"
 　智代は体当たりをかけさらにその身体を押し出した。
 wave "wave/laser.wav"
 bg #FA1A07,1
-bg "bg/station7.jpg",10
+bg "bg\station7.jpg",10
 ld c,tomoyo4,6
 　警官の右肩が爆ぜた。ゆっくりと倒れゆく彼の背後にメガホンを構えたもう一人の警官と、そのこめかみを薙ぎ払う智代の長い脚があった。\
 　呆然とする俺の胸に何かが当たって落ちた。
@@ -4552,7 +4626,7 @@ ld c,tomoyo9,6
 
 
 stop
-bg "bg/smail1.jpg",20
+bg "bg\smail1.jpg",20
 ld l,tomoyo4,6
 ld r,kotomi4,6
 　薄暗い通路だった。俺は床に膝をついてしばらく荒い息を吐いた。隣ではことみが同じようにしていた。智代は通路の壁に背もたれ、厳しい目つきで警官から奪った銃器を点検していた。
@@ -4629,7 +4703,7 @@ ld c,tomoyo1,10
 ld c,tomoyo1,14
 「――腕のばして、よく狙って撃つ。それだけ」\
 bg #000000,6
-bg "bg/smail1.jpg",20
+bg "bg\smail1.jpg",20
 　壊れた機械を踏み越えてまた俺たちは走り出した。どうにかことみもついて来ていた。狭い通路に３人の靴音が反響した。ふと一番先を走っていた智代が立ち止まった。俺たちも倣った。倣わざるをえなかった。――そこは行き止まりだった。
 ld l,tomoyo5,6
 「どうする？」
@@ -4648,7 +4722,7 @@ ld c,tomoyo9,6
 　俺はもうどうしようもなくて、無意味に靴の踵を床に打ちつけた。\
 stop
 bg #000000,1
-bg "bg/smail1.jpg",10
+bg "bg\smail1.jpg",10
 wave "wave/fm007.wav"
 　ブンッ、と音がして――@智代たちが消えた。
 　何が起きたかすぐには理解できなかった。
@@ -4721,7 +4795,7 @@ ld c,tomoyo9,6
 
 
 stop
-bg "bg/smail2.jpg",6
+bg "bg\smail2.jpg",6
 　長い通路を駆け抜けた先にドーム状の空間があった。その床には底の見えない穴がぽっかりと口を開けていた。まるで奈落だった。脇の壁には確かに青いランプが点っていた。
 「こいつが赤に変わったら飛びこめと言っていた」
 ld l,tomoyo4,6
@@ -4740,7 +4814,7 @@ wave "wave/kaze.wav"
 bg #FFFFFF,10
 　不意にもの凄い勢いで背中を押された。風だった。――光が見えた。俺の身体は錐もみながら、その光の中に吸いこまれた。
 bgm "bgm/kuzureotiru.mid"
-bg "bg/smail3.jpg",10
+bg "bg\smail3.jpg",10
 　――空があった。地平に沈みゆく真っ赤な太陽が見えた。眼下には雑然とした町の風景が広がっていた。天空に向かい急速に遠ざかる黒い塔を逆さまに見た。
 　思わずこぶしを握りしめた。俺たちはスメールからの脱出に成功した！\
 　風圧に閉じそうになる目で２人の姿を探した。智代は少し離れたところを無事落下していた。けれどもその表情は真剣だった。何かを伝えようと大ぶりに口を動かしていた。
@@ -4761,7 +4835,7 @@ wave "wave/laser.wav"
 wave "wave\dageki.wav"
 bg #FFFFFF,1
 quakey 2,1
-bg "bg/smail3.jpg",10
+bg "bg\smail3.jpg",10
 「ぐっ！」
 　背中に何かがぶつかった。振り向いた。ことみに手が届いた。すぐそこに地面が迫っていた。
 　身を焼き尽くすような焦燥の中、俺はどうにか２本のピンを同時に引き抜いた。\
@@ -4783,7 +4857,6 @@ stop
 cl a,10
 　そして俺たちはまた走り出した。逃亡者にはありがたい夜の帳が町に降りようとしていた。\
 bg #000000,10
-*
 
 ;-----------------秘密の屋上------------------------------------
 stop
@@ -4869,7 +4942,7 @@ stop
 *kyusui
 
 
-bg "bg/koya.jpg",10
+bg "bg\koya.jpg",10
 　芳野が帰ってしまったあと、俺たちは給水塔の下にある小さな小屋に入った。夜空に厚い雲が広がり始めたことと、屋上は目立ちすぎるという智代の意見があったからだ。数本の酒瓶が置かれ、あの得体の知れない肉の薫製が吊られた小さな空間だったが、３人で籠もるには十分だった。
 loopbgm "bgm\lain.wav","bgm\lain.wav"
 　小屋に入ってすぐ、外には雨が降り出した。滴が屋根を打つ音は次第に大きくなり、俺たちは水の浸入を防ぐために床と扉の隙間を塞がなければならなかった。用意されていた毛布の一枚をそれで使ってしまった。芳野に申し訳ないと思ったが、鼻で笑って「気にするな_」と言い捨てる彼の顔が目に浮かんだ。\
@@ -4925,11 +4998,11 @@ loopbgmstop
 stop
 bg #000000,10
 ;給水塔の小屋（朝）
-bg "bg/sky02.jpg",10
+bg "bg\sky02.jpg",10
 
 loopbgm "bgm\lain.wav","bgm\lain.wav"
 　薄闇の中に目を覚ました。小さな窓の外に黒い空が見えた。冷たく湿った空気が頬に触れていた。雨はまだ降っているようだ。
-bg "bg/koya_asa.jpg",6
+bg "bg\koya_asa.jpg",6
 　部屋の隅には智代があどけない寝顔を見せていた。その身体には毛布がかかっている。ふと隣に目を遣った。膝を抱えうずくまるようにして眠ることみの姿があった。
 「……こんな不自然な格好でよく眠れる」
 「もう、起きてる」
@@ -8631,34 +8704,39 @@ bg #000000,10
 skipoff
 textoff
 
-bg "staffroll\01.jpg",14
+bg "EN\staffroll\01.jpg",14
 delay 8000
-bg "staffroll\02.jpg",14
+bg "EN\staffroll\02.jpg",14
 delay 8000
-bg "staffroll\03.jpg",14
+bg "EN\staffroll\03.jpg",14
 delay 8000
-bg "staffroll\04.jpg",14
+bg "EN\staffroll\04.jpg",14
 delay 8000
-bg "staffroll\05.jpg",14
+bg "EN\staffroll\05.jpg",14
 delay 8000
-bg "staffroll\06.jpg",14
+bg "EN\staffroll\06.jpg",14
 delay 8000
-bg "staffroll\07.jpg",14
+bg "EN\staffroll\07.jpg",14
 delay 8000
-bg "staffroll\13.jpg",14
+bg "EN\staffroll\13.jpg",14
 delay 8000
-bg "staffroll\14.jpg",14
+bg "EN\staffroll\14.jpg",14
 delay 8000
-bg "staffroll\08.jpg",14
+bg "EN\staffroll\08.jpg",14
 delay 8000
-bg "staffroll\09.jpg",14
+bg "EN\staffroll\09.jpg",14
 delay 8000
-bg "staffroll\10.jpg",14
+bg "EN\staffroll\10.jpg",14
 delay 8000
-bg "staffroll\11.jpg",14
+bg "EN\staffroll\11.jpg",14
 delay 8000
-bg "staffroll\12.jpg",14
+bg "EN\staffroll\15.jpg",14
 delay 8000
+bg "EN\staffroll\12.jpg",14
+delay 8000
+bg "EN\staffroll\16.jpg",14
+delay 8000
+
 
 
 bg #000000,22
@@ -9019,7 +9097,7 @@ ld c,kouko5,10
 「手術、頑張ってね」
 　出かけ際、そう言ってくれたのは嬉しかった。\
 
-bg "bg2/lobby.jpg",10
+bg "EN\bg2\lobby.jpg",10
 bgm "bgm\38.mid"
 　手続きをすませ、ロビーで順番を待つ。
 　この時代の人間はパーツを埋め込むことに抵抗はないのだろうか。正直言って、俺には抵抗がある。きっと公子さんや風子にもあるだろう。抵抗というか、違和感というか……ぶっちゃければ怖いということかもしれない。
@@ -9674,7 +9752,7 @@ stop
 ;----------------------------バーふじこへ入店
 bgm "bgm\aishuu.mid"
 bg #000000,6
-bg "bg/fujiko.jpg",6
+bg "bg\fujiko.jpg",6
 ld c,fujiko2,6
 「いらっしゃい。あら祐介ちゃん、お客様？」
 　店に入ると深紅のドレスを着た女性が出迎えてくれた。目の覚めるような美人だった。腰までの黒髪が水に濡れたように輝いている。
@@ -9732,7 +9810,7 @@ cl a,6
 　そのたびに俺たちはでっち上げの経歴を語らねばならなかったから、満席になるころにはすっかりそれが本当のことであると自分でも信じるようになってしまっていた。\
 　演奏が始まる前から、そこかしこで乾杯の声が響いた。たちまち店内は賑やかな活気に満ちあふれる。
 　――どこかで見たことがある光景だと思った。テレビで見たことがある外国の酒場の光景。誰もが陽気に声をかけあい、杯を交わしあう。そんなルールで一体になった空間が、俺の目の前に広がっていた。\
-bg "bg/rockband.jpg",6
+bg "bg\rockband.jpg",6
 　不意に拍手が起こりそちらの方向を見ると、３人の男たちが楽器を携えて座っていた。
 　アコースティックギターを抱える芳野と、ドラムセットに向かうルドルフと、サックスを構えるジェイと呼ばれた黒人。
 　一瞬の静寂があって、『マイスター・シンガー』の演奏が始まった。\
@@ -9888,13 +9966,13 @@ cl a,6
 　ことみを引き留めた俺の心に後悔はなかった。俺たちはいつか、きっとあの町に続く道を見いだせる。そう信じたから。\
 bg #000000,23
 bgm "bgm/mayugm.mid"
-bg "bg/front.jpg",6
+bg "bg\front.jpg",6
 『玉葱を刻むとき涙を流さないようにするためにはどうすればいいか？　答えは簡単で、涙が流れる前に刻みきってしまえばいい』@
 　この業界では使い古された有名な格言らしい。だが俺は、両の目から止め処なく流れ落ちる涙をどうすることもできないでいる。
 　一年間働いてようやく包丁を持てるようになったが、任せてもらえるのはこうした細々とした仕事だけだ。給料は安いし作業もきつい。それでも少しずつ新しい仕事を覚えてゆけるのは楽しい。厨房は俺にとって、正しい場所だという実感がある。\
 　――今日はことみから重要な連絡がある日で、だから朝から落ち着かない。もっともこんな心境で仕事に臨む場合は普段より慎重になるから、今のところ絆創膏の世話にはなっていない。……その代わりに玉葱から受ける被害がいつもより大きいというだけの話だ。
 　最後の一個を刻み終えて溜息をついたところで、ホールからふじこさんの声がかかった。俺は包丁を拭い、刻んだ玉葱を入れたボウルにラップをしてから厨房を出た。\
-bg "bg/fujiko.jpg",6
+bg "bg\fujiko.jpg",6
 ld l,tomoyo7,6
 ld r,kotomi2,6
 　２番テーブルの横に立つことみと智代の顔を見た時点で、俺にはもう結果が分かった。
@@ -9925,7 +10003,7 @@ ld c,rudo4,6
 cl a,6
 などと抜かす始末。朗報を聞いてあの道楽者がどういう反応をするか、今から楽しみでならない。\
 　――もっともことみはそうした賞賛に興味はないし、むしろ心では嫌がるだろう。彼女の喜びはまったく別の理由によるもので、それを知るのはこの広い中京で俺と智代だけだ。
-bg "bg/fujiko.jpg",6
+bg "bg\fujiko.jpg",6
 ld c,fujiko2,6
 「玉葱は片づいたの？」
 「え？　あ、はい。刻み終わりました」
@@ -9942,7 +10020,7 @@ cl a,6
 「――な。これは玉葱です！」
 　時間遅れの抗議は宙ぶらりんになった。溜息をつきながら振り返れば、２人が今にも噴き出しそうな顔で俺を見ていた……。\
 bg #000000,6
-bg "bg/together.jpg",6
+bg "bg\together.jpg",6
 　春の暖かな風の中、黒い巨塔が太陽の光を受け輝いている。スメールの地階は名古屋駅で、ことみがこれから通う名古屋大学はその上に入っている。
 「文字通り、一歩近づいたな」
 ld c,kotomi2,6
@@ -9973,7 +10051,7 @@ ld c,tomoyo7,6
 cl a,6
 bg #000000,6
 　恐らくは俺たちの居候のために芳野と公子先生の仲が進展したこともあってか、最近ふじこさんはまとわりつくような目で俺の身体を見ることがある。さらに悪いことには、ときおり見せる優しさと美貌にほだされて、『一度くらいなら』と考える自分が――@どこかにいるのだ。\
-bg "bg/together.jpg",6
+bg "bg\together.jpg",6
 「桜が咲くね」
 ld c,kotomi2,6
 　道端で蕾を膨らませる桜の木を見あげてことみが呟いた。俺は頭を振って不吉な思考を追い払い、彼女と同じように萌え初める桜を見た。
@@ -10018,8 +10096,8 @@ stop
 textoff
 lsp 51,":c/2,0,3;extra-cgmode.jpg",50,10
 lsp 52,":c/2,0,3;extra-soundmode.jpg",120,165
-lsp 53,":c/2,0,3;extra-omake.jpg",190,320
-lsp 54,":s/18,18,2;#FFFFFF#17E0F0【戻る】",10,431
+lsp 53,":c/2,0,3;EN\extra-omake.jpg",190,320
+lsp 54,":s/18,18,2;#FFFFFF#17E0F0【`Back`】",10,431
 
 
 for %cnt=51 to 54
@@ -10040,30 +10118,30 @@ goto *extra
 
 
 ;---------------------------------------------------------------------------------
-;サウンドモード
+;Sound mode
 ;---------------------------------------------------------------------------------
 *soundmode
 rmode 0
 textoff
 lsp 99,":s#FFFFFFＳｏｕｎｄ　Ｍｏｄｅ",230,0
 
-lsp 100,":s/17,17,0;#FFFFFF#17E0F0ＭＳより愛をこめて",50,110
-lsp 101,":s/17,17,0;#FFFFFF#17E0F0月童改",50,130
-lsp 102,":s/17,17,0;#FFFFFF#17E0F0編曲メグメル改",50,150
-lsp 103,":s/17,17,0;#FFFFFF#17E0F0メグメル改",50,170
-lsp 104,":s/17,17,0;#FFFFFF#17E0F0メグメルピアノ弾き",50,190
-lsp 105,":s/17,17,0;#FFFFFF#17E0F0空に光る改",50,210
-lsp 106,":s/17,17,0;#FFFFFF#17E0F0スカボローフェア",50,230
-lsp 107,":s/17,17,0;#FFFFFF#17E0F0渚改",50,250
+lsp 100,":s/17,17,0;#FFFFFF#17E0F0`From MS With Love`",50,110
+lsp 101,":s/17,17,0;#FFFFFF#17E0F0`Tsukiwarabe",50,130
+lsp 102,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell New Arrange`",50,150
+lsp 103,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell Arrange`",50,170
+lsp 104,":s/17,17,0;#FFFFFF#17E0F0`Mag Mell Piano Version`",50,190
+lsp 105,":s/17,17,0;#FFFFFF#17E0F0`Shining in the Sky Arrange`",50,210
+lsp 106,":s/17,17,0;#FFFFFF#17E0F0`Scarborough Fair`",50,230
+lsp 107,":s/17,17,0;#FFFFFF#17E0F0`Nagisa Arrange`",50,250
 
 
-lsp 108,":s/17,17,0;#FFFFFF#17E0F0矜持",50,270
-lsp 109,":s/17,17,0;#FFFFFF#17E0F0Etude pour　les petites spercordes改",50,290
-lsp 110,":s/17,17,0;#FFFFFF#17E0F0戦いのソナタ",50,310
-lsp 111,":s/17,17,0;#FFFFFF#17E0F0３－１＝３",50,330
+lsp 108,":s/17,17,0;#FFFFFF#17E0F0`Pride`",50,270
+lsp 109,":s/17,17,0;#FFFFFF#17E0F0`Etude Pour　Les Petites Spercordes Arrange`",50,290
+lsp 110,":s/17,17,0;#FFFFFF#17E0F0`Sonata of War`",50,310
+lsp 111,":s/17,17,0;#FFFFFF#17E0F03-1=3",50,330
 
 
-lsp 112,":s/17,17,0;#FFFFFF#17E0F0【戻る】",300,360
+lsp 112,":s/17,17,0;#FFFFFF#17E0F0【`Back`】",300,360
 
 for %cnt=100 to 112
   spbtn %cnt,%cnt
@@ -10092,87 +10170,87 @@ if %0=112 rmode 1:goto *extra
 
 *train
 bgm "bgm\train.mp3"
-曲名　ＭＳより愛をこめて
-制作　琉球\
+`Title　From MS With Love
+`Author　Ryukyu\
 stop
 goto *soundmode
 
 *tukiwarabe
 bgm "bgm\tukiwarabe.mid"
-曲名　月童改
-制作　Ｔａｍ\
+`Title Tsukiwarabe
+`Author　Tam\
 stop
 goto *soundmode
 
 *megmel
 bgm "bgm2/megmel.mp3"
-曲名　編曲メグメル改
-制作　Ｔａｍ
-編曲　皐月龍斗\
+`Title　Megmel New Arrange
+`Producer　Tam
+`Arrangement　Satsuki Ryuto \
 stop
 goto *soundmode
 
 *megmel2
 bgm "bgm\megmel.mid"
-曲名　メグメル改
-制作　Ｔａｍ\
+`Title　Meg Mel Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *megmelpiano
 bgm "bgm2\megmel_piano.mid"
-曲名　メグメルピアノ弾き
-制作　Ｔａｍ\
+`Title　Meg Mel Piano Version
+`Producer　Tam\
 stop
 goto *soundmode
 
 *sorani
 bgm "bgm2\sorani_yes.mp3"
-曲名　空に光る改
-制作　Ｔａｍ\
+`Title　Shining in the Sky Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *ska
 bgm "bgm2\okarina.mp3"
-曲名　スカボローフェア
-演奏　紫の人\
+`Title　Scarborrough Fair
+`Performance　Purple People\
 stop
 goto *soundmode
 
 *nagisa
 bgm "bgm\nagisa.mid"
-曲名　渚改
-制作　Ｔａｍ\
+`Title　Nagisa Arrange
+`Producer　Tam\
 stop
 goto *soundmode
 
 *pride
 bgm "bgm2\pride.mp3"
-曲名　矜持
-制作　Ｌｏｇｉｃ\
+`Title　Pride
+`prodcer　Logic\
 stop
 goto *soundmode
 
 *kotomi
 bgm "bgm2\etd-kotomi-theme.mp3"
-曲名　Ｅｔｕｄｅ　ｐｏｕｒ　ｌｅｓ　ｐｅｔｉｔｅｓ
-　　　ｓｐｅｒｃｏｒｄｅｓ改
-制作　皐月龍斗\
+`Title Etude Pour Les Petites
+`　　　Spercodes Arrange
+`Author　Satsuki Ryuto\
 stop
 goto *soundmode
 
 *sonata
 bgm "bgm2\sonata-x.mp3"
-曲名　戦いのソナタ
-制作　琉球\
+`Title　Sonata of War
+`Producer　Ryukyu\
 stop
 goto *soundmode
 
 *tomoyo
 bgm "bgm2\tomoyo_end.mp3"
-曲名　３－１＝３
-制作　Ｌｏｇｉｃ\
+`Title　3-1=3
+`Producer　Logic\
 stop
 goto *soundmode
 
@@ -10218,7 +10296,7 @@ lsp 48,":c/2,0,3;event\sm\miroku1.jpg",390,310
 lsp 50,":c/2,0,3;event\sm\daylight.jpg",510,310
 
 
-lsp 55,":s/18,18,2;#FFFFFF#17E0F0【戻る】",273,431
+lsp 55,":s/18,18,2;#FFFFFF#17E0F0【`Back`】",273,431
 
 
 
@@ -10284,11 +10362,11 @@ if %0=55 allspresume:goto *extra
 ;---------------------------------------------------------------------------------
 *omakescenario
 textoff
-bg "extra-omake2.jpg",10
-lsp 110,":s/17,17,0;#FFFFFF#17E0F0「変わらない想い」　著者：若本強",40,115
-lsp 111,":s/17,17,0;#FFFFFF#17E0F0「雨上がりの会食」　著者：Tonks ",120,210
-lsp 112,":s/17,17,0;#FFFFFF#17E0F0「Ｂｏｎ☆Ｃｏｕｒａｇｅ」　著者：酔狂会館",200,300
-lsp 113,":s/18,18,2;#FFFFFF#17E0F0【戻る】",273,431
+bg "EN\extra-omake2.jpg",10
+lsp 110,":s/17,17,0;#FFFFFF#17E0F0`「Unchanging Feelings`」　Author： Wakamomaru`",40,115
+lsp 111,":s/17,17,0;#FFFFFF#17E0F0`「Eating Together After Rainfall」　Author：Tonks `",120,210
+lsp 112,":s/17,17,0;#FFFFFF#17E0F0`「Ｂｏｎ☆Ｃｏｕｒａｇｅ」　Author：Suikyou Kaikan`",200,300
+lsp 113,":s/18,18,2;#FFFFFF#17E0F0【`Back`】",273,431
 
 *omakescenarioloop
 
@@ -10312,8 +10390,8 @@ click
 
 ;--------------------------------------------------------------------------------------------
 *demostart
-csp -1
-print 10
+allspresume
+
 ;---------------------------------------
 ;ネタナド中間デモ
 ;---------------------------------------
@@ -10328,12 +10406,14 @@ trap *demoend ;クリックされたらデモ終わり
 
 
 ;画像01ことみ
-bg "demo\demo01.jpg",10
+bg "EN\demo\demo01.jpg",10
 delay 4800
 bg #000000,10
 ld l,"demo\kotomi99.jpg",10
 ld l,kotomi1,10
+;purposely left untranslated JP name's as a artistical choice since the sprites use both EN and JP in the original
 lsp 10,":s#FFFFFF一ノ瀬ことみ",300,400
+lsp 11,":s#FFFFFF`Kotomi Ichinose`",300,370
 lsp 26,":l;demo\kotomi.jpg",120,0
 print 6
 delay 4000
@@ -10342,12 +10422,13 @@ csp -1
 
 
 ;画像02智代
-bg "demo\demo02.jpg",10
+bg "EN\demo\demo02.jpg",10
 delay 4500
 bg #000000,10
 ld r,"demo\tomoyo99.jpg",10
 ld r,tomoyo1,10
 lsp 10,":s#FFFFFF坂上智代",280,400
+lsp 11,":s#FFFFFF`Tomoyo Sakagami`",200,370
 lsp 26,":l;demo\tomoyo.jpg",0,0
 print 6
 delay 3600
@@ -10355,14 +10436,15 @@ csp -1
 
 
 ;画像03渚と母ちゃん
-bg "demo\demo03.jpg",10
+bg "EN\demo\demo03.jpg",10
 delay 4500
 bg #000000,10
 
 ld l,"demo\nagisa99.jpg",10
 ld l,nagisa50,10
 
-lsp 10,":s#FFFFFF古河渚",250,400
+lsp 10,":s#FFFFFF古河渚",280,400
+lsp 11,":s#FFFFFF`Nagisa Furukawa`",280,370
 lsp 26,":l;demo\nagisa.jpg",100,0
 print 6
 delay 3750
@@ -10371,7 +10453,8 @@ cl a,10
 
 
 ld l,"chara\sanae\sanae50.jpg",10
-lsp 10,":s#FFFFFF古河早苗",250,400
+lsp 10,":s#FFFFFF古河早苗",280,400
+lsp 11,":s#FFFFFF`Sanae Furukawa`",280,370
 lsp 26,":l;demo\sanae.jpg",150,0
 print 6
 delay 4000
@@ -10380,11 +10463,12 @@ csp -1
 
 
 ;画像04風子
-bg "demo\demo04.jpg",10
+bg "EN\demo\demo04.jpg",10
 delay 4600
 bg #000000,10
 ld r,fuko1,10
 lsp 10,":s#FFFFFF伊吹風子",280,400
+lsp 11,":s#FFFFFF`Fuko Ibuki`",280,370
 lsp 26,":l;demo\fuko.jpg",0,0
 print 6
 delay 3750
@@ -10395,6 +10479,7 @@ cl a,10
 ;画像04公子
 ld l,kouko1,10
 lsp 10,":s#FFFFFF伊吹公子",250,400
+lsp 11,":s#FFFFFF`Kouko Ibuki`",250,370
 lsp 26,":l;demo\kouko.jpg",250,0
 print 6
 delay 4300
@@ -10402,11 +10487,12 @@ csp -1
 
 
 ;画像05ルド・ヨシ・フジ
-bg "demo\demo05.jpg",10
+bg "EN\demo\demo05.jpg",10
 delay 4600
 bg #000000,10
 ld c,yosino1,10
 lsp 10,":s#FFFFFF芳野祐介",450,400
+lsp 11,":s#FFFFFF`Yusuke Yoshino`",450,370
 lsp 26,":l;demo\yoshino.jpg",150,0
 print 6
 delay 3950
@@ -10415,6 +10501,7 @@ cl a,10
 
 ld c,rudo1,10
 lsp 10,":s#FFFFFFルドルフ",450,400
+lsp 11,":s#FFFFFF`Rudolf`",450,370
 lsp 26,":l;demo\rudolf.jpg",0,0
 print 6
 delay 3900
@@ -10422,7 +10509,8 @@ csp -1
 cl a,10
 
 ld c,fujiko1,10
-lsp 10,":s#FFFFFFふじこ",450,400
+lsp 10,":s#FFFFFFふじこ",480,400
+lsp 11,":s#FFFFFF`Fujiko`",480,370
 lsp 26,":l;demo\fujiko.jpg",0,0
 print 6
 delay 3900
@@ -10431,11 +10519,12 @@ cl a,10
 
 
 ;画像06秋生とカルマ
-bg "demo\demo06.jpg",10
+bg "EN\demo\demo06.jpg",10
 delay 7000
 bg #000000,10
 ld r,"chara\akio\akio50.jpg",10
-lsp 10,":s#FFFFFF古河秋生",250,400
+lsp 10,":s#FFFFFF古河秋生",180,400
+lsp 11,":s#FFFFFF`Akio Furukawa`",180,370
 lsp 26,":l;demo\akio.jpg",0,0
 print 6
 delay 3950
@@ -10445,6 +10534,7 @@ cl a,10
 
 ld l,karman1,10
 lsp 10,":s#FFFFFFカルマ",300,400
+lsp 11,":s#FFFFFF`Karman`",300,370
 lsp 26,":l;demo\karman.jpg",400,0
 print 6
 delay 3850
@@ -10453,19 +10543,19 @@ cl a,10
 
 
 
-bg "demo\demo07.jpg",10
+bg "EN\demo\demo07.jpg",10
 delay 7000
 bg #000000,10
 
-bg "demo\demo09.jpg",10
+bg "EN\demo\demo09.jpg",10
 delay 7500
 bg #000000,10
 
-bg "demo\demo10.jpg",10
+bg "EN\demo\demo10.jpg",10
 delay 7500
 bg #000000,10
 
-bg "demo\demo08.jpg",14
+bg "EN\demo\demo08.jpg",14
 delay 7500
 
 
