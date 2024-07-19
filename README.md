@@ -11,7 +11,7 @@ Prologue translation up to line 1143. Includes fully translated UI - Images.
 [NETANNAD -ネタナド- : Team Netannad](https://archive.org/details/netannad)
 
 ## Patch
-Can be found in releases, requires to be installed ontop of the original JP version
+Can be found in releases, requires to be installed on top of the original JP version
 
 ## Credits
 
