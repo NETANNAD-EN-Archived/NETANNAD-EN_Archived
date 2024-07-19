@@ -1,37 +1,22 @@
-# NETANNAD-EN_ver.2.00
+# NETANNAD-EN_Archived
 
-A translation project aiming to translate NETANNAD into English
+This serves solely as an archive of the project up to it's prologue and is not being updated or maintained on this repo any longer. For information regarding the project and it's current state look elsewhere or contact the original author.
+
+Prologue translation up to line 1143. Includes fully translated UI - Images.
 
 ![NETANNAD EN](https://i.imgur.com/RgblV50.png)
-
-![Contribution callout](https://i.imgur.com/qdn7dK8.png)
-
-## About
-
-In 2003, members of the leaf key bulletin board fed up with the multiple delays of Clannad jokingly proposed the idea of making it themselves. This led to NETANNAD, a dystopian sci fi visual novel with Clannad's characters that released before the actual game
-
-## Description
-
-In the near future, A.D.2265. There is a huge tower above the capital of Japan, Chukyo, called Sumeru. Rumor says people live inside in peace, without competition, kind to each other. Pierces through high clouds, shines black as obsidian.
-
-## Project
-
-This project's goal is to patch the game and translate the 10 000 lines of gamescript and various graphical assets into English
-
 
 ## Download
 
 [NETANNAD -ネタナド- : Team Netannad](https://archive.org/details/netannad)
 
 ## Patch
-
-- Get the latest patch release at [Releases](https://github.com/NETANNAD-EN/NETANNAD-EN_ver.2.00/releases) and copy and paste the files to your NETANNAD folder
-- Launch the game with ```netannad_en.exe```
-
+Can be found in releases, requires to be installed ontop of the original JP version
 
 ## Credits
 
-This section is updated to reflect contributors
+All work and use of must be credited.
+Credits reflect the original work and this archives contributors.
 
 ## JP
 - [Tonks - Original Author - Sub scripter](misskey.io/@tonks_smr)
@@ -39,7 +24,7 @@ This section is updated to reflect contributors
 - The rest of the people involved with the orignial NETANNAD
 
 ## EN
-- [Allu "Allunatik" - Script - Project manager - Graphical work](https://x.com/Allunatikk)
-- [Duralumin - Translation](misskey.io/@tonks_smr)
+- [Allu "Allunatik" - Scripting - Graphical work](https://x.com/Allunatikk)
+- [Duralumin - Translation](https://x.com/Samudesu)
 - [ShNova - Translation](https://x.com/ShigetoKoko)
 - [Engine work - Playmer - ONScripter-Fork](https://github.com/playmer/ONScripter-EN-Official)
